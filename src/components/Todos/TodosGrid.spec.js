@@ -31,6 +31,6 @@ describe('Display a title-list of the array todos', () => {
 
 		const todos = screen.getAllByRole('listitem');
 
-		expect(todos.length).toBe(3);
+		expect(todos).toHaveLength(3);
 	});
 });
