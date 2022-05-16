@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const TodoContainer = styled.section`
+export const Container = styled.section`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
