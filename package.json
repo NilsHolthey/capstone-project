@@ -10,6 +10,8 @@
     "prettier:check": "npx prettier --check .",
     "prettier:write": "npx prettier --write .",
     "eslint": "npx eslint \"**/*.js\"",
+    "test": "jest --env=jsdom",
+    "test:watch": "jest --env=jsdom --watch",
     "prepare": "husky install"
   },
   "dependencies": {
