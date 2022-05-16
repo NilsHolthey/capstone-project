@@ -30,13 +30,7 @@ describe('Display a title-list of the array todos', () => {
 		);
 
 		const todos = screen.getAllByRole('listitem');
-		const todos1 = screen.getByText(/Capstone Project/i);
-		const todos2 = screen.getByText(/Personal Website/i);
-		const todos3 = screen.getByText(/Tax return 2021/i);
 
 		expect(todos.length).toBe(3);
-		expect(todos1).toBeInTheDocument();
-		expect(todos2).toBeInTheDocument();
-		expect(todos3).toBeInTheDocument();
 	});
 });

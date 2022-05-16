@@ -1,14 +1,12 @@
 import { TodoList } from '../UI/TodoCard/TodoList.styled';
 import { TodoLi } from '../UI/TodoCard/TodoListItem.styled';
-import { TodoContainer } from '../UI/TodoGrid/TodoContainer';
-import { ToDoNav } from '../UI/TodoGrid/TodoNav.styled';
+import { Container } from '../UI/Grid/Container';
 import Todos from './Todos';
 
 export default function TodosGrid({ todos }) {
 	return (
-		<TodoContainer>
-			<ToDoNav>DoIT</ToDoNav>
-			<TodoList>
+		<Container>
+			<TodoList role="list">
 				{todos
 					.filter(todos => todos.status === 'doIt')
 					.map(todos => (
@@ -17,6 +15,6 @@ export default function TodosGrid({ todos }) {
 						</TodoLi>
 					))}
 			</TodoList>
-		</TodoContainer>
+		</Container>
 	);
 }
