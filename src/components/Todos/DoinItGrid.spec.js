@@ -2,8 +2,8 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import DoinItGrid from './DoinItGrid';
 
-describe('Display a title-list of the array todos', () => {
-	it('renders the title of array-todos', () => {
+describe('Display a title-list of the array todos an a Headline', () => {
+	it('renders the title of array-todos and a h2', () => {
 		render(
 			<DoinItGrid
 				todos={[
@@ -36,7 +36,9 @@ describe('Display a title-list of the array todos', () => {
 		);
 
 		const todos = screen.getAllByRole('listitem');
+		const headline = screen.getByRole('heading', { name: /DoingIT/i });
 
 		expect(todos).toHaveLength(4);
+		expect(headline).toBeInTheDocument();
 	});
 });
