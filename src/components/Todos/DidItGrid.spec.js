@@ -2,8 +2,8 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import DidItGrid from './DidItGrid';
 
-describe('Display a title-list of the array todos and a Headline', () => {
-	it('renders the title of array-todos and a h2', () => {
+describe('Display DidItGrid', () => {
+	it('renders a ul with the value of the key Title and a h2', () => {
 		render(
 			<DidItGrid
 				todos={[

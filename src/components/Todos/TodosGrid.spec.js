@@ -2,7 +2,7 @@ import TodosGrid from './TodosGrid';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
-describe('Display a title-list of the array todos', () => {
+describe('TodosGrid', () => {
 	it('renders the title of array-todos', () => {
 		render(
 			<TodosGrid
