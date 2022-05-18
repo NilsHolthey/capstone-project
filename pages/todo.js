@@ -12,6 +12,6 @@ export function getStaticProps() {
 	};
 }
 
-export default function Home({ todos }) {
+export default function Todo({ todos }) {
 	return <TodosGrid todos={todos} />;
 }
