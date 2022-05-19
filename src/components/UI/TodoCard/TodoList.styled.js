@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const TodoList = styled.ul`
-	width: 300px;
+	width: 350px;
 	background: #f6f6f6;
 	height: 50vh;
 	list-style: none;

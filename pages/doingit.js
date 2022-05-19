@@ -1,5 +1,4 @@
-import TodosGrid from '../src/components/Todos/TodosGrid';
-
+import DoinItGrid from '../src/components/Todos/DoinItGrid';
 import { getTodos } from '../src/services/get-todos';
 
 export function getStaticProps() {
@@ -12,6 +11,6 @@ export function getStaticProps() {
 	};
 }
 
-export default function Home({ todos }) {
-	return <TodosGrid todos={todos} />;
+export default function DoinIt({ todos }) {
+	return <DoinItGrid todos={todos} />;
 }

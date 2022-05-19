@@ -6,4 +6,5 @@ export const TodoLi = styled.li`
 	border-radius: 8px;
 	padding-left: 5px;
 	gap: 5px;
+	min-height: 55px;
 `;
