@@ -1,17 +1,22 @@
 import Link from 'next/link';
+import { StyledNavbar } from '../UI/Navbar/Navbar.styled';
+import { NavLink } from '../UI/Navbar/NavLink.styled';
+import { useRouter } from 'next/router';
 
 export default function Navbar() {
+	const router = useRouter();
+
 	return (
-		<>
+		<StyledNavbar>
 			<Link passHref href="/todo">
-				DoIT
+				<NavLink pathName={router.pathname}>DoIT</NavLink>
 			</Link>
 			<Link passHref href="/doingit">
-				DoingIT
+				<NavLink pathName={router.pathname}>DoingIT</NavLink>
 			</Link>
 			<Link passHref href="/didit">
-				DidIT
+				<NavLink pathName={router.pathname}>DidIT</NavLink>
 			</Link>
-		</>
+		</StyledNavbar>
 	);
 }
