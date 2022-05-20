@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Form from '../src/components/Form/Form';
 import dynamic from 'next/dynamic';
 import { getTodos } from '../src/services/get-todos';
-import { loadFromLocal, saveToLocal } from '../src/components/lib/localtorage';
+import { loadFromLocal, saveToLocal } from '../src/components/lib/localStorage';
 
 export function getStaticProps() {
 	const initialTodos = getTodos();
