@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Form from '../src/components/Form/Form';
 import dynamic from 'next/dynamic';
 import { getTodos } from '../src/services/get-todos';
-import { loadFromLocal, saveToLocal } from '../src/components/lib/localstorage';
+import { loadFromLocal, saveToLocal } from '../src/components/lib/localtorage';
 
 export function getStaticProps() {
 	const initialTodos = getTodos();
@@ -27,7 +27,6 @@ export default function Home({ initialTodos }) {
 
 	const addTodo = newdata => {
 		setTodos([...todos, { id: nanoid(), status: 'doIt', title: newdata.title }]);
-		console.log(newdata);
 	};
 	return (
 		<>
