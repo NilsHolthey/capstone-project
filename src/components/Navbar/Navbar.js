@@ -8,7 +8,7 @@ export default function Navbar() {
 
 	return (
 		<StyledNavbar>
-			<Link passHref href="/todo">
+			<Link passHref href="/">
 				<NavLink pathName={router.pathname}>DoIT</NavLink>
 			</Link>
 			<Link passHref href="/doingit">
