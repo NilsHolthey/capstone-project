@@ -1,17 +1,37 @@
-import TodosGrid from '../src/components/Todos/TodosGrid';
-
+import { nanoid } from 'nanoid';
+import dynamic from 'next/dynamic';
+import Form from '../src/components/Form/Form';
+import { useEffect, useState } from 'react';
+import { loadFromLocal, saveToLocal } from '../src/components/lib/localStorage';
 import { getTodos } from '../src/services/get-todos';
 
 export function getStaticProps() {
-	const todos = getTodos();
+	const initialTodos = getTodos();
 
 	return {
 		props: {
-			todos,
+			initialTodos,
 		},
 	};
 }
 
-export default function Todo({ todos }) {
-	return <TodosGrid todos={todos} />;
+export default function Home({ initialTodos }) {
+	const TodosGrid = dynamic(() => import('../src/components/Todos/TodosGrid'), {
+		ssr: false,
+	});
+	const [todos, setTodos] = useState(loadFromLocal('localTodos') ?? initialTodos);
+
+	useEffect(() => {
+		saveToLocal('localTodos', todos);
+	}, [todos]);
+
+	const addTodo = newdata => {
+		setTodos([...todos, { id: nanoid(), status: 'doIt', title: newdata.title }]);
+	};
+	return (
+		<>
+			<TodosGrid todos={todos} />
+			<Form onAddTodo={addTodo} />
+		</>
+	);
 }
