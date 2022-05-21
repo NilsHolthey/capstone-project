@@ -28,9 +28,14 @@ export default function Home({ initialTodos }) {
 	const addTodo = newdata => {
 		setTodos([...todos, { id: nanoid(), status: 'doIt', title: newdata.title }]);
 	};
+
+	const deleteTodo = id => {
+		setTodos(todos.filter(todo => todo.id !== id));
+	};
+
 	return (
 		<>
-			<TodosGrid todos={todos} />
+			<TodosGrid todos={todos} onDeleteTodo={deleteTodo} />
 			<Form onAddTodo={addTodo} />
 		</>
 	);

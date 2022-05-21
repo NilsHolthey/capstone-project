@@ -3,18 +3,19 @@ import React from 'react';
 import { FormContainer } from '../UI/Form/FormContainer.styled';
 import { StyledForm } from '../UI/Form/Form.styled';
 import { Wrapper } from '../UI/Form/Wrapper.styled';
-import { Button } from '../UI/Button/Button.styled';
+import { SubmitButton } from '../UI/Button/SubmitButton.styled';
 
 export default function Form({ onAddTodo }) {
 	const {
 		register,
 		handleSubmit,
+		reset,
 		formState: { errors },
-	} = useForm();
+	} = useForm('');
 
-	const onSubmit = (data, event) => {
+	const onSubmit = data => {
 		onAddTodo(data);
-		event.target.reset();
+		reset();
 	};
 
 	return (
@@ -33,7 +34,7 @@ export default function Form({ onAddTodo }) {
 						})}
 						placeholder="add title"
 					/>
-					<Button type="submit">Submit</Button>
+					<SubmitButton>Submit</SubmitButton>
 				</StyledForm>
 			</FormContainer>
 		</Wrapper>

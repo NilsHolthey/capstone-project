@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Button = styled.button`
+export const SubmitButton = styled.button`
 	background-color: #6667ab;
 	border-radius: 16px;
 	border: none;
