@@ -1,16 +1,30 @@
-import DoinItGrid from '../src/components/Todos/DoinItGrid';
+import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 import { getTodos } from '../src/services/get-todos';
+import { loadFromLocal, saveToLocal } from '../src/components/lib/localStorage';
 
 export function getStaticProps() {
-	const todos = getTodos();
+	const initialTodos = getTodos();
 
 	return {
 		props: {
-			todos,
+			initialTodos,
 		},
 	};
 }
 
-export default function DoinIt({ todos }) {
-	return <DoinItGrid todos={todos} />;
+export default function DoinIt({ initialTodos }) {
+	const DoinItGrid = dynamic(() => import('../src/components/Todos/DoinItGrid'), {
+		ssr: false,
+	});
+	const [todos, setTodos] = useState(loadFromLocal('localTodos') ?? initialTodos);
+
+	useEffect(() => {
+		saveToLocal('localTodos', todos);
+	}, [todos]);
+
+	const deleteTodo = id => {
+		setTodos(todos.filter(todo => todo.id !== id));
+	};
+	return <DoinItGrid todos={todos} onDeleteTodo={deleteTodo} />;
 }
