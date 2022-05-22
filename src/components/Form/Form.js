@@ -5,6 +5,8 @@ import { StyledForm } from '../UI/Form/Form.styled';
 import { Wrapper } from '../UI/Form/Wrapper.styled';
 import { SubmitButton } from '../UI/Button/SubmitButton.styled';
 import { useRouter } from 'next/router';
+import SvgIcon from '../SVGs/icons';
+import { NavButton } from '../UI/Button/NavButton.styled';
 
 export default function Form({ onAddTodo }) {
 	const router = useRouter();
@@ -20,9 +22,15 @@ export default function Form({ onAddTodo }) {
 		reset();
 		router.push('/');
 	};
+	const handleClick = () => {
+		router.push('/');
+	};
 
 	return (
 		<Wrapper>
+			<NavButton type="button" onClick={handleClick}>
+				<SvgIcon variant="chevronLeftCircle" size="20px" color="#6667ab" />
+			</NavButton>
 			<FormContainer>
 				<StyledForm onSubmit={handleSubmit(onSubmit)}>
 					<label htmlFor="title">Title</label>
