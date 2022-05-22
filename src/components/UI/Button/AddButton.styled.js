@@ -11,4 +11,5 @@ export const AddButton = styled.button`
 	display: flex;
 	box-shadow: 0px 5px 33px 4px #e4e4e4;
 	transform: translate(-50%, -50%);
+	cursor: pointer;
 `;
