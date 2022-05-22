@@ -4,8 +4,10 @@ import { FormContainer } from '../UI/Form/FormContainer.styled';
 import { StyledForm } from '../UI/Form/Form.styled';
 import { Wrapper } from '../UI/Form/Wrapper.styled';
 import { SubmitButton } from '../UI/Button/SubmitButton.styled';
+import { useRouter } from 'next/router';
 
 export default function Form({ onAddTodo }) {
+	const router = useRouter();
 	const {
 		register,
 		handleSubmit,
@@ -16,6 +18,7 @@ export default function Form({ onAddTodo }) {
 	const onSubmit = data => {
 		onAddTodo(data);
 		reset();
+		router.push('/');
 	};
 
 	return (

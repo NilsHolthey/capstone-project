@@ -10,4 +10,5 @@ export const TodoList = styled.ul`
 	justify-content: flex-start;
 	gap: 5px;
 	padding: 10px;
+	margin-bottom: 12vh; ;
 `;
