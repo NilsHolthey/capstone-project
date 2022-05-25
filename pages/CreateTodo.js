@@ -19,12 +19,11 @@ export default function CreateTodo({ initialTodos }) {
 
 	useEffect(() => {
 		saveToLocal('localTodos', todos);
-		console.log(todos);
 	}, [todos]);
 
 	const addTodo = useCallback(
 		newdata => {
-			setTodos([{ id: nanoid(), status: 'doIt', title: newdata.title }, ...todos]);
+			setTodos([{ id: nanoid(), title: newdata.title }, ...todos]);
 		},
 		[todos, setTodos]
 	);

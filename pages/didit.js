@@ -1,31 +1,70 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
-import { getTodos } from '../src/services/get-todos';
+import update from 'immutability-helper';
 import { loadFromLocal, saveToLocal } from '../src/components/lib/localStorage';
+import { getDidits } from '../src/services/get-didIts';
+import { Container } from '../src/components/UI/Grid/Container';
+import { ListHeadline } from '../src/components/UI/TodoCard/ListHeadline.styled';
+import { TodoList } from '../src/components/UI/TodoCard/TodoList.styled';
 
 export function getStaticProps() {
-	const initialTodos = getTodos();
+	const initialDidits = getDidits();
 
 	return {
 		props: {
-			initialTodos,
+			initialDidits,
 		},
 	};
 }
 
-export default function DidIt({ initialTodos }) {
-	const DidItGrid = dynamic(() => import('../src/components/Todos/DidItGrid'), {
+export default function DidIt({ initialDidits }) {
+	const Todo = dynamic(() => import('../src/components/Todos/Todo'), {
 		ssr: false,
 	});
-	const [todos, setTodos] = useState(loadFromLocal('localTodos') ?? initialTodos);
+	const [didits, setDidits] = useState(loadFromLocal('localDidits') ?? initialDidits);
 
 	useEffect(() => {
-		saveToLocal('localTodos', todos);
-	}, [todos]);
+		saveToLocal('localDidits', didits);
+	}, [didits]);
 
-	const deleteTodo = id => {
-		setTodos(todos.filter(todo => todo.id !== id));
-	};
+	const deleteTodo = useCallback(
+		id => {
+			setDidits(didits.filter(didits => didits.id !== id));
+		},
+		[didits]
+	);
 
-	return <DidItGrid todos={todos} onDeleteTodo={deleteTodo} />;
+	const moveCard = useCallback((dragIndex, hoverIndex) => {
+		setDidits(prevCards =>
+			update(prevCards, {
+				$splice: [
+					[dragIndex, 1],
+					[hoverIndex, 0, prevCards[dragIndex]],
+				],
+			})
+		);
+	}, []);
+
+	const renderCard = useCallback(
+		(didit, index) => {
+			return (
+				<Todo
+					key={didit.id}
+					index={index}
+					id={didit.id}
+					title={didit.title}
+					moveCard={moveCard}
+					onDeleteTodo={deleteTodo}
+				/>
+			);
+		},
+		[moveCard, deleteTodo]
+	);
+
+	return (
+		<Container>
+			<ListHeadline>DoIT</ListHeadline>
+			<TodoList role="list">{didits.map((todo, index) => renderCard(todo, index))}</TodoList>
+		</Container>
+	);
 }

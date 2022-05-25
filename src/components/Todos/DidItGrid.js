@@ -3,23 +3,21 @@ import { Container } from '../UI/Grid/Container';
 import Todo from './Todo';
 import { ListHeadline } from '../UI/TodoCard/ListHeadline.styled';
 
-export default function DidItGrid({ todos, onDeleteTodo, index }) {
+export default function DidItGrid({ didits, onDeleteTodo, index }) {
 	return (
 		<Container>
 			<ListHeadline>DidIT</ListHeadline>
 			<TodoList>
-				{todos
-					.filter(todo => todo.status === 'didIt')
-					.map(todo => (
-						<span key={todo.id}>
-							<Todo
-								id={todo.id}
-								title={todo.title}
-								index={index}
-								onDeleteTodo={onDeleteTodo}
-							/>
-						</span>
-					))}
+				{didits.map(didits => (
+					<span key={didits.id}>
+						<Todo
+							id={didits.id}
+							title={didits.title}
+							index={index}
+							onDeleteTodo={onDeleteTodo}
+						/>
+					</span>
+				))}
 			</TodoList>
 		</Container>
 	);

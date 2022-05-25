@@ -16,41 +16,5 @@
     "title": "Capstone Project",
     "description": "write 2 new userStories",
     "status": "doIt"
-  },
-  {
-    "id": "i6b8es2cISprMyjgbg1lk",
-    "title": "Gift for John",
-    "description": "have to make foto collection for his birthday",
-    "status": "doingIt"
-  },
-  {
-    "id": "8jMQoM3rwheGryUGdTYkS",
-    "title": "Export default vs. named export",
-    "description": "Modern Moose",
-    "status": "doingIt"
-  },
-  {
-    "id": "jfZ85d_kDkqEmzvdZ25Nx",
-    "title": "XY presentation",
-    "description": "start my presentation for work",
-    "status": "doingIt"
-  },
-  {
-    "id": "QHx9uNRvffME2qkUmPmdM",
-    "title": "Single page applications",
-    "description": "refactor quizz app",
-    "status": "doingIt"
-  },
-  {
-    "id": "bMrcHIV9zyJeyf2sdijq_",
-    "title": "gitHub",
-    "description": "update my gitHub readme",
-    "status": "didIt"
-  },
-  {
-    "id": "6HW1op2QThpUiWXAD-MVK",
-    "title": "Invitations",
-    "description": "send invitations for Johns B-day per email",
-    "status": "didIt"
   }
 ]

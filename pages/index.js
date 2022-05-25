@@ -1,12 +1,12 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, createContext } from 'react';
 import update from 'immutability-helper';
 import { getTodos } from '../src/services/get-todos';
 import { loadFromLocal, saveToLocal } from '../src/components/lib/localStorage';
-
 import { TodoList } from '../src/components/UI/TodoCard/TodoList.styled';
 import { Container } from '../src/components/UI/Grid/Container';
 import { ListHeadline } from '../src/components/UI/TodoCard/ListHeadline.styled';
 import dynamic from 'next/dynamic';
+import Dropzone1 from '../src/components/Dropzones/Dropzone1';
 
 export function getStaticProps() {
 	const initialTodos = getTodos();
@@ -18,6 +18,10 @@ export function getStaticProps() {
 	};
 }
 
+export const CardContext = createContext({
+	moveOneUp: null,
+});
+
 export default function Home({ initialTodos }) {
 	const Todo = dynamic(() => import('../src/components/Todos/Todo'), {
 		ssr: false,
@@ -27,6 +31,13 @@ export default function Home({ initialTodos }) {
 	useEffect(() => {
 		saveToLocal('localTodos', todos);
 	}, [todos]);
+
+	const moveOneUp = useCallback(
+		id => {
+			setTodos(todos.filter(todo => todo.id !== id));
+		},
+		[todos]
+	);
 
 	const deleteTodo = useCallback(
 		id => {
@@ -63,13 +74,14 @@ export default function Home({ initialTodos }) {
 	);
 
 	return (
-		<Container>
-			<ListHeadline>DoIT</ListHeadline>
-			<TodoList role="list">
-				{todos
-					.filter(todo => todo.status === 'doIt')
-					.map((todo, index) => renderCard(todo, index))}
-			</TodoList>
-		</Container>
+		<CardContext.Provider value={moveOneUp}>
+			<Container>
+				<Dropzone1 />
+				<ListHeadline>DoIT</ListHeadline>
+				<TodoList role="list">
+					{todos.map((todo, index) => renderCard(todo, index))}
+				</TodoList>
+			</Container>
+		</CardContext.Provider>
 	);
 }
