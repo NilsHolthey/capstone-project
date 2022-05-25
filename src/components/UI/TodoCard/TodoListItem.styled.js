@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const TodoLi = styled.li`
+export const TodoLi = styled.div`
 	color: #545060;
 	background-color: white;
 	border-radius: 8px;

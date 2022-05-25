@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Form from '../src/components/Form/Form';
 import { getTodos } from '../src/services/get-todos';
 import { loadFromLocal, saveToLocal } from '../src/components/lib/localStorage';
@@ -19,11 +19,15 @@ export default function CreateTodo({ initialTodos }) {
 
 	useEffect(() => {
 		saveToLocal('localTodos', todos);
+		console.log(todos);
 	}, [todos]);
 
-	const addTodo = newdata => {
-		setTodos([...todos, { id: nanoid(), status: 'doIt', title: newdata.title }]);
-	};
+	const addTodo = useCallback(
+		newdata => {
+			setTodos([{ id: nanoid(), status: 'doIt', title: newdata.title }, ...todos]);
+		},
+		[todos, setTodos]
+	);
 
 	return <Form onAddTodo={addTodo} />;
 }
