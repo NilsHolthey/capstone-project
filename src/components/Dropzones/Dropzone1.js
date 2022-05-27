@@ -1,12 +1,12 @@
-import { useContext } from 'react';
 import { useDrop } from 'react-dnd';
-import { CardContext } from '../../../pages';
+import useStore from '../../lib/useStore';
+
 import SvgIcon from '../SVGs/icons';
 import { Dropzone } from '../UI/Dropzone/Dropzone.styled';
 import { ItemTypes } from '../UI/items';
 
 export default function Dropzone1(props) {
-	const moveOneUp = useContext(CardContext);
+	const moveOneUp = useStore(state => state.moveOneUp);
 
 	const [{ isOver }, drop] = useDrop({
 		accept: ItemTypes.CARD,

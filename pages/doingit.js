@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import update from 'immutability-helper';
-import { loadFromLocal, saveToLocal } from '../src/components/lib/localStorage';
+import { loadFromLocal, saveToLocal } from '../src/lib/localStorage';
 import { getDoingIts } from '../src/services/get-doingIts';
 import { TodoList } from '../src/components/UI/TodoCard/TodoList.styled';
 import { ListHeadline } from '../src/components/UI/TodoCard/ListHeadline.styled';

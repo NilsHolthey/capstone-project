@@ -1,11 +1,14 @@
 import { useRef } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
+import useStore from '../../lib/useStore';
 import SvgIcon from '../SVGs/icons';
 import { DeleteButton } from '../UI/Button/DeleteButton.styled';
 import { ItemTypes } from '../UI/items';
 import { TodoLi } from '../UI/TodoCard/TodoListItem.styled';
 
-export default function Todo({ title, id, onDeleteTodo, index, moveCard }) {
+export default function Todo({ title, id, index }) {
+	const moveCard = useStore(state => state.moveCard);
+
 	const ref = useRef(null);
 	const [{ handlerId }, drop] = useDrop({
 		accept: ItemTypes.CARD,
@@ -37,14 +40,18 @@ export default function Todo({ title, id, onDeleteTodo, index, moveCard }) {
 			if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
 				return;
 			}
-			moveCard(dragIndex, hoverIndex);
+			const handleMoveCard = (dragIndex, hoverIndex) => {
+				moveCard(dragIndex, hoverIndex);
+			};
+			handleMoveCard(dragIndex, hoverIndex);
 
 			item.index = hoverIndex;
 		},
 	});
 
+	const deleteTodo = useStore(state => state.deleteTodo);
 	const handleDelete = () => {
-		onDeleteTodo(id);
+		deleteTodo(id);
 	};
 
 	const [{ isDragging }, drag] = useDrag({

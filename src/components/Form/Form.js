@@ -7,8 +7,11 @@ import { SubmitButton } from '../UI/Button/SubmitButton.styled';
 import { useRouter } from 'next/router';
 import SvgIcon from '../SVGs/icons';
 import { NavButton } from '../UI/Button/NavButton.styled';
+import useStore from '../../lib/useStore';
 
-export default function Form({ onAddTodo }) {
+export default function Form() {
+	const addTodo = useStore(state => state.addTodo);
+
 	const router = useRouter();
 	const {
 		register,
@@ -18,8 +21,8 @@ export default function Form({ onAddTodo }) {
 	} = useForm('');
 
 	const onSubmit = data => {
-		onAddTodo(data);
 		reset();
+		addTodo(data);
 		router.push('/');
 	};
 	const handleClick = () => {

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import update from 'immutability-helper';
-import { loadFromLocal, saveToLocal } from '../src/components/lib/localStorage';
+import { loadFromLocal, saveToLocal } from '../src/lib/localStorage';
 import { getDidits } from '../src/services/get-didIts';
 import { Container } from '../src/components/UI/Grid/Container';
 import { ListHeadline } from '../src/components/UI/TodoCard/ListHeadline.styled';
@@ -54,7 +54,7 @@ export default function DidIt({ initialDidits }) {
 					id={didit.id}
 					title={didit.title}
 					moveCard={moveCard}
-					onDeleteTodo={deleteTodo}
+					deleteTodo={deleteTodo}
 				/>
 			);
 		},
