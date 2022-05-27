@@ -73,30 +73,75 @@ const useStore = create(
 					};
 				});
 			},
-			moveOneUp: id => {
-				set(state => {
-					return {
-						todos: state.todos.filter(todo => todo.id !== id),
-					};
-				});
+			moveTwoUp: index => {
+				set(
+					produce(state => {
+						const todo = state.doingIts[index];
+						state.doingIts.splice(index, 1);
+						state.didIts.splice(index, 0, todo);
+					})
+				);
+			},
+
+			moveOneUp: index => {
+				set(
+					produce(state => {
+						const todo = state.todos[index];
+						state.todos.splice(index, 1);
+						state.doingIts.splice(index, 0, todo);
+					})
+				);
 			},
 
 			moveCard: (dragIndex, hoverIndex) => {
 				set(
 					produce(state => {
-						const item = state.todos[dragIndex];
+						const todo = state.todos[dragIndex];
 						state.todos.splice(dragIndex, 1);
-						state.todos.splice(hoverIndex, 0, item);
+						state.todos.splice(hoverIndex, 0, todo);
 					})
 				);
 			},
 
-			deleteTodo: id => {
-				set(state => {
-					return {
-						todos: state.todos.filter(todo => todo.id !== id),
-					};
-				});
+			moveCardDo: (dragIndex, hoverIndex) => {
+				set(
+					produce(state => {
+						const doingIt = state.doingIts[dragIndex];
+						state.doingIts.splice(dragIndex, 1);
+						state.doingIts.splice(hoverIndex, 0, doingIt);
+					})
+				);
+			},
+			moveCardDid: (dragIndex, hoverIndex) => {
+				set(
+					produce(state => {
+						const didIt = state.didIts[dragIndex];
+						state.didIts.splice(dragIndex, 1);
+						state.didIts.splice(hoverIndex, 0, didIt);
+					})
+				);
+			},
+
+			deleteTodo: index => {
+				set(
+					produce(state => {
+						state.todos.splice(index, 1);
+					})
+				);
+			},
+			deleteDo: index => {
+				set(
+					produce(state => {
+						state.doingIts.splice(index, 1);
+					})
+				);
+			},
+			deleteDid: index => {
+				set(
+					produce(state => {
+						state.didIts.splice(index, 1);
+					})
+				);
 			},
 		}),
 		{ name: 'DidIt' }

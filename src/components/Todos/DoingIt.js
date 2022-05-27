@@ -6,9 +6,9 @@ import { DeleteButton } from '../UI/Button/DeleteButton.styled';
 import { ItemTypes } from '../UI/items';
 import { TodoLi } from '../UI/TodoCard/TodoListItem.styled';
 
-export default function Todo({ title, id, index }) {
-	const moveCard = useStore(state => state.moveCard);
-	const deleteTodo = useStore(state => state.deleteTodo);
+export default function DoingIt({ title, id, index }) {
+	const moveCardDo = useStore(state => state.moveCardDo);
+	const deleteDo = useStore(state => state.deleteDo);
 	const ref = useRef(null);
 	const [{ handlerId, isOver }, drop] = useDrop({
 		accept: ItemTypes.CARD,
@@ -42,7 +42,7 @@ export default function Todo({ title, id, index }) {
 				return;
 			}
 			const handleMoveCard = (dragIndex, hoverIndex) => {
-				moveCard(dragIndex, hoverIndex);
+				moveCardDo(dragIndex, hoverIndex);
 			};
 			handleMoveCard(dragIndex, hoverIndex);
 
@@ -50,9 +50,8 @@ export default function Todo({ title, id, index }) {
 		},
 	});
 	const handleDelete = () => {
-		deleteTodo(index);
+		deleteDo(index);
 	};
-
 	const [{ isDragging }, drag] = useDrag({
 		type: ItemTypes.CARD,
 		item: () => {
@@ -62,6 +61,7 @@ export default function Todo({ title, id, index }) {
 			isDragging: monitor.isDragging(),
 		}),
 	});
+
 	drag(drop(ref));
 	const opacity = isDragging ? 0 : 1;
 

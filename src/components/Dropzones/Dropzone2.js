@@ -6,11 +6,11 @@ import { Dropzone } from '../UI/Dropzone/Dropzone.styled';
 import { ItemTypes } from '../UI/items';
 
 export default function Dropzone1(props) {
-	const moveOneUp = useStore(state => state.moveOneUp);
+	const moveTwoUp = useStore(state => state.moveTwoUp);
 
 	const [{ isOver }, drop] = useDrop({
 		accept: ItemTypes.CARD,
-		drop: item => moveOneUp(item.index),
+		drop: item => moveTwoUp(item.index),
 		collect: monitor => ({
 			isOver: !!monitor.isOver(),
 		}),

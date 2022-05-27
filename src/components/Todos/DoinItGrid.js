@@ -1,24 +1,28 @@
 import { TodoList } from '../UI/TodoCard/TodoList.styled';
-
 import { Container } from '../UI/Grid/Container';
-import Todo from './Todo';
+import DoingIt from './DoingIt';
 import { ListHeadline } from '../UI/TodoCard/ListHeadline.styled';
+import Dropzone2 from '../Dropzones/Dropzone2';
+import useStore from '../../lib/useStore';
 
-export default function DoinItGrid({ doingIts, onDeleteTodo, index }) {
+export default function DoinItGrid() {
+	const doingIts = useStore(state => state.doingIts);
+
 	return (
 		<Container>
-			<ListHeadline>DoingIT</ListHeadline>
-			<TodoList>
-				{doingIts.map(doingIt => (
-					<span key={doingIt.id}>
-						<Todo
+			<Dropzone2 />
+			<ListHeadline>DoIT</ListHeadline>
+			<TodoList role="list">
+				{doingIts.map((doingIt, index) => {
+					return (
+						<DoingIt
+							key={doingIt.id}
 							id={doingIt.id}
 							title={doingIt.title}
 							index={index}
-							onDeleteTodo={onDeleteTodo}
 						/>
-					</span>
-				))}
+					);
+				})}
 			</TodoList>
 		</Container>
 	);
