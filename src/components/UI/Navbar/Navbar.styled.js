@@ -3,9 +3,10 @@ import styled from 'styled-components';
 export const StyledNavbar = styled.nav`
 	display: flex;
 	justify-content: space-around;
+	padding-top: 5px;
 	width: 100vw;
 	position: fixed;
-	background: #f6f6f6;
-	padding: 8px;
+	background: #e3e3e3;
 	z-index: 10;
+	height: 5vh;
 `;

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const StyledFooter = styled.footer`
+export const StyledBottomNav = styled.nav`
 	position: fixed;
-	background-color: #e3e3e3;
+	background-color: #cdd1dc;
 	width: 100vw;
 	height: 10vh;
 	bottom: 0px;

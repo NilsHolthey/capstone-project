@@ -72,7 +72,7 @@ export default function DidIt({ title, id, index }) {
 			ref={ref}
 			style={{ opacity }}
 			data-handler-id={handlerId}
-			background={isOver ? '#b2e79f' : 'white'}
+			background={isOver ? '#e3e3e3' : 'white'}
 		>
 			{title}
 			<DeleteButton onClick={handleDelete}>

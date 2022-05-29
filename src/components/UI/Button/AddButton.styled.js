@@ -8,7 +8,7 @@ export const AddButton = styled.button`
 	left: 50%;
 	padding: 0;
 	display: flex;
-	box-shadow: 0px 5px 33px 4px #e4e4e4;
+	box-shadow: 0px 34px 37px 8px rgba(102, 103, 171, 0.65);
 	transform: translate(-50%, -40%);
 	cursor: pointer;
 `;
