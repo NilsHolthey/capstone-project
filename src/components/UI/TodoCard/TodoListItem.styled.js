@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const TodoLi = styled.div`
 	color: #545060;
 	background: ${({ background = 'white' }) => background};
+	opacity: ${({ opacity = '1' }) => opacity};
 	border-radius: 8px;
 	padding: 5px 0 0 10px;
 	gap: 5px;

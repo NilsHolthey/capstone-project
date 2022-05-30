@@ -63,7 +63,6 @@ export default function DidIt({ title, id, index }) {
 			isDragging: monitor.isDragging(),
 		}),
 	});
-	const opacity = isDragging ? 0 : 1;
 
 	drag(drop(ref));
 
@@ -71,8 +70,8 @@ export default function DidIt({ title, id, index }) {
 		<TodoLi
 			ref={ref}
 			data-handler-id={handlerId}
+			opacity={isDragging ? 0 : 1}
 			background={isOver ? '#e3e3e3' : 'white'}
-			style={{ opacity }}
 		>
 			{title}
 			<DeleteButton onClick={handleDelete}>

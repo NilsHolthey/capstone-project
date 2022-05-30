@@ -63,12 +63,11 @@ export default function DoingIt({ title, id, index }) {
 	});
 
 	drag(drop(ref));
-	const opacity = isDragging ? 0 : 1;
 
 	return (
 		<TodoLi
 			ref={ref}
-			style={{ opacity }}
+			opacity={isDragging ? 0 : 1}
 			data-handler-id={handlerId}
 			background={isOver ? '#e3e3e3' : 'white'}
 		>
