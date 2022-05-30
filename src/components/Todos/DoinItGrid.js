@@ -5,12 +5,12 @@ import Dropzone from '../Dropzones/Dropzone';
 
 export default function DoinItGrid() {
 	const doingIts = useStore(state => state.doingIts);
-	const moveTwoUp = useStore(state => state.moveTwoUp);
+	const moveToDidIt = useStore(state => state.moveToDidIt);
 
 	return (
 		<GenericGrid
 			todoList={doingIts}
-			dropzone={<Dropzone onMove={moveTwoUp} />}
+			dropzone={<Dropzone onMove={moveToDidIt} />}
 			TodoComponent={DoingIt}
 		/>
 	);

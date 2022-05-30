@@ -6,12 +6,12 @@ import Todo from './Todo';
 
 export default function TodoGrid() {
 	const todos = useStore(state => state.todos);
-	const moveOneUp = useStore(state => state.moveOneUp);
+	const moveToDoingIt = useStore(state => state.moveToDoingIt);
 
 	return (
 		<GenericGrid
 			todoList={todos}
-			dropzone={<Dropzone onMove={moveOneUp} />}
+			dropzone={<Dropzone onMove={moveToDoingIt} />}
 			TodoComponent={Todo}
 		/>
 	);

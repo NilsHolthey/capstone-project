@@ -67,79 +67,80 @@ const useStore = create(
 				},
 			],
 			addTodo: todo => {
-				set(state => {
-					return {
-						todos: [{ id: nanoid(), title: todo.title }, ...state.todos],
-					};
-				});
-			},
-			moveTwoUp: index => {
 				set(
-					produce(state => {
-						const todo = state.doingIts[index];
-						state.doingIts.splice(index, 1);
-						state.didIts.splice(index, 0, todo);
+					produce(draft => {
+						draft.todos.push({ id: nanoid(), title: todo.title });
 					})
 				);
 			},
 
-			moveOneUp: index => {
+			moveToDidIt: index => {
 				set(
-					produce(state => {
-						const todo = state.todos[index];
-						state.todos.splice(index, 1);
-						state.doingIts.splice(index, 0, todo);
+					produce(draft => {
+						const todo = draft.doingIts[index];
+						draft.doingIts.splice(index, 1);
+						draft.didIts.splice(index, 0, todo);
+					})
+				);
+			},
+
+			moveToDoingIt: index => {
+				set(
+					produce(draft => {
+						const todo = draft.todos[index];
+						draft.todos.splice(index, 1);
+						draft.doingIts.splice(index, 0, todo);
 					})
 				);
 			},
 
 			moveCard: (dragIndex, hoverIndex) => {
 				set(
-					produce(state => {
-						const todo = state.todos[dragIndex];
-						state.todos.splice(dragIndex, 1);
-						state.todos.splice(hoverIndex, 0, todo);
+					produce(draft => {
+						const todo = draft.todos[dragIndex];
+						draft.todos.splice(dragIndex, 1);
+						draft.todos.splice(hoverIndex, 0, todo);
 					})
 				);
 			},
 
 			moveCardDo: (dragIndex, hoverIndex) => {
 				set(
-					produce(state => {
-						const doingIt = state.doingIts[dragIndex];
-						state.doingIts.splice(dragIndex, 1);
-						state.doingIts.splice(hoverIndex, 0, doingIt);
+					produce(draft => {
+						const doingIt = draft.doingIts[dragIndex];
+						draft.doingIts.splice(dragIndex, 1);
+						draft.doingIts.splice(hoverIndex, 0, doingIt);
 					})
 				);
 			},
 			moveCardDid: (dragIndex, hoverIndex) => {
 				set(
-					produce(state => {
-						const didIt = state.didIts[dragIndex];
-						state.didIts.splice(dragIndex, 1);
-						state.didIts.splice(hoverIndex, 0, didIt);
+					produce(draft => {
+						const didIt = draft.didIts[dragIndex];
+						draft.didIts.splice(dragIndex, 1);
+						draft.didIts.splice(hoverIndex, 0, didIt);
 					})
 				);
 			},
 
 			deleteTodo: index => {
 				set(
-					produce(state => {
-						state.todos.splice(index, 1);
+					produce(draft => {
+						draft.todos.splice(index, 1);
 					})
 				);
 			},
 			deleteDo: index => {
 				set(
-					produce(state => {
-						state.doingIts.splice(index, 1);
+					produce(draft => {
+						draft.doingIts.splice(index, 1);
 					})
 				);
 			},
 			deleteDid: index => {
 				set(
-					produce(state => {
-						state.didIts.splice(index, 1);
+					produce(draft => {
+						draft.didIts.splice(index, 1);
 					})
 				);
 			},

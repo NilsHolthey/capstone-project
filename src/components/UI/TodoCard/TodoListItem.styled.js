@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const TodoLi = styled.div`
+export const TodoLi = styled.li`
 	color: #545060;
 	background: ${({ background = 'white' }) => background};
 	opacity: ${({ opacity = '1' }) => opacity};
