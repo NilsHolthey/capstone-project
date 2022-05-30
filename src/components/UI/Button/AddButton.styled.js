@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const AddButton = styled.button`
+export const AddIcon = styled.span`
 	border: none;
 	background-color: #f6f6f6;
 	border-radius: 8px;
