@@ -14,7 +14,7 @@ export default function LandingPage() {
 	return (
 		<Container pathName={router.pathname}>
 			<article>
-				<Card top="-10px" left="-30px">
+				<Card top="-11px" left="-30px">
 					{' '}
 				</Card>
 				<Card top="-55px" right="21px">
