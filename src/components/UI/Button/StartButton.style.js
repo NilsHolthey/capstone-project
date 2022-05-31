@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const StartButton = styled.button`
 	display: flex;
 	width: 110px;
+	height: 40px;
 	justify-content: center;
 	gap: 10px;
 	align-items: center;

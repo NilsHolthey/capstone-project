@@ -71,7 +71,7 @@ export default function LandingPage() {
 			</LogoContainer>
 			<StartButton type="button" onClick={handleClick}>
 				Start
-				<SvgIcon variant="chevronRightCircle" size="35px" color="#f6f6f6" />
+				<SvgIcon variant="chevronRightCircle" size="30px" color="#f6f6f6" />
 			</StartButton>
 		</Container>
 	);
