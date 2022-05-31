@@ -1,32 +1,9 @@
-import { useEffect, useState } from 'react';
-
+import React from 'react';
 import dynamic from 'next/dynamic';
-import { getTodos } from '../src/services/get-todos';
-import { loadFromLocal, saveToLocal } from '../src/components/lib/localStorage';
+const TodoGrid = dynamic(() => import('../src/components/Todos/TodosGrid'), {
+	ssr: false,
+});
 
-export function getStaticProps() {
-	const initialTodos = getTodos();
-
-	return {
-		props: {
-			initialTodos,
-		},
-	};
-}
-
-export default function Home({ initialTodos }) {
-	const TodosGrid = dynamic(() => import('../src/components/Todos/TodosGrid'), {
-		ssr: false,
-	});
-	const [todos, setTodos] = useState(loadFromLocal('localTodos') ?? initialTodos);
-
-	useEffect(() => {
-		saveToLocal('localTodos', todos);
-	}, [todos]);
-
-	const deleteTodo = id => {
-		setTodos(todos.filter(todo => todo.id !== id));
-	};
-
-	return <TodosGrid todos={todos} onDeleteTodo={deleteTodo} />;
+export default function Home() {
+	return <TodoGrid />;
 }

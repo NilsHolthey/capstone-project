@@ -1,17 +1,10 @@
-import SvgIcon from '../SVGs/icons';
-import { DeleteButton } from '../UI/Button/DeleteButton.styled';
+import useStore from '../../lib/useStore';
 
-export default function Todo({ id, title, onDeleteTodo }) {
-	const handleDelete = () => {
-		onDeleteTodo(id);
-	};
+import GenericTodo from './GenericTodo';
 
-	return (
-		<>
-			{title}
-			<DeleteButton onClick={handleDelete}>
-				<SvgIcon variant="delete" size="20px" color="#D9D9D9" />
-			</DeleteButton>
-		</>
-	);
+export default function Todo(props) {
+	const moveCard = useStore(state => state.moveCard);
+	const deleteTodo = useStore(state => state.deleteTodo);
+
+	return <GenericTodo {...props} moveCard={moveCard} deleteTodo={deleteTodo} />;
 }

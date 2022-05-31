@@ -3,7 +3,7 @@ import { StyledNavbar } from '../UI/Navbar/Navbar.styled';
 import { NavLink } from '../UI/Navbar/NavLink.styled';
 import { useRouter } from 'next/router';
 
-export default function Navbar() {
+export default function TopNavbar() {
 	const router = useRouter();
 
 	return (

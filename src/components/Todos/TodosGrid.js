@@ -1,22 +1,18 @@
-import { TodoList } from '../UI/TodoCard/TodoList.styled';
-import { TodoLi } from '../UI/TodoCard/TodoListItem.styled';
-import { Container } from '../UI/Grid/Container';
-import Todo from './Todo';
-import { ListHeadline } from '../UI/TodoCard/ListHeadline.styled';
+import Dropzone from '../Dropzones/Dropzone';
+import useStore from '../../lib/useStore';
 
-export default function TodosGrid({ todos, onDeleteTodo }) {
+import GenericGrid from './GenericGrid';
+import Todo from './Todo';
+
+export default function TodoGrid() {
+	const todos = useStore(state => state.todos);
+	const moveToDoingIt = useStore(state => state.moveToDoingIt);
+
 	return (
-		<Container>
-			<ListHeadline>DoIT</ListHeadline>
-			<TodoList role="list">
-				{todos
-					.filter(todo => todo.status === 'doIt')
-					.map(todo => (
-						<TodoLi key={todo.id}>
-							<Todo id={todo.id} title={todo.title} onDeleteTodo={onDeleteTodo} />
-						</TodoLi>
-					))}
-			</TodoList>
-		</Container>
+		<GenericGrid
+			todoList={todos}
+			dropzone={<Dropzone onMove={moveToDoingIt} />}
+			TodoComponent={Todo}
+		/>
 	);
 }

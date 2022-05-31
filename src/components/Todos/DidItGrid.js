@@ -1,22 +1,9 @@
-import { TodoList } from '../UI/TodoCard/TodoList.styled';
-import { TodoLi } from '../UI/TodoCard/TodoListItem.styled';
-import { Container } from '../UI/Grid/Container';
-import Todo from './Todo';
-import { ListHeadline } from '../UI/TodoCard/ListHeadline.styled';
+import useStore from '../../lib/useStore';
+import DidIt from './DidIt';
+import GenericGrid from './GenericGrid';
 
-export default function DidItGrid({ todos, onDeleteTodo }) {
-	return (
-		<Container>
-			<ListHeadline>DidIT</ListHeadline>
-			<TodoList role="list">
-				{todos
-					.filter(todo => todo.status === 'didIt')
-					.map(todo => (
-						<TodoLi key={todo.id}>
-							<Todo id={todo.id} title={todo.title} onDeleteTodo={onDeleteTodo} />
-						</TodoLi>
-					))}
-			</TodoList>
-		</Container>
-	);
+export default function DidItGrid() {
+	const didIts = useStore(state => state.didIts);
+
+	return <GenericGrid todoList={didIts} TodoComponent={DidIt} />;
 }

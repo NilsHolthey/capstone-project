@@ -6,5 +6,5 @@ export const Container = styled.section`
 	align-items: center;
 	justify-content: flex-start;
 	min-height: 70vh;
-	padding-top: 40px;
+	padding-top: 60px;
 `;
