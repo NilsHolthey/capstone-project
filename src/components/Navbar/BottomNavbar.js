@@ -7,7 +7,7 @@ import { StyledBottomNav } from '../UI/Navbar/BottomNavbar/StyledBottomNav.style
 export default function Footer() {
 	const router = useRouter();
 	return (
-		<StyledBottomNav>
+		<StyledBottomNav pathName={router.pathname}>
 			<Link passHref href="/CreateTodo">
 				<AddIcon pathName={router.pathname}>
 					<SvgIcon variant="add" size="58px" color="#6667ab" />

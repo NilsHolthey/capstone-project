@@ -13,4 +13,5 @@ export const NavLink = styled.a`
 	background-color: ${props => (props.href === props.pathName ? 'white' : 'none')};
 	padding: 0 30px 0 30px;
 	border-radius: 12px 12px 0 0;
+	visibility: ${props => (props.pathName === '/' ? 'hidden' : 'visible')};
 `;
