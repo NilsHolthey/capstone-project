@@ -13,7 +13,7 @@ export default function LandingPage() {
 	};
 	return (
 		<Container pathName={router.pathname}>
-			<section>
+			<article>
 				<Card top="-10px" left="-30px">
 					{' '}
 				</Card>
@@ -65,7 +65,7 @@ export default function LandingPage() {
 				<Card bottom="150px" right="100px">
 					{' '}
 				</Card>
-			</section>
+			</article>
 			<LogoContainer>
 				<LogoAnimation />
 			</LogoContainer>
