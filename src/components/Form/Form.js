@@ -23,10 +23,10 @@ export default function Form() {
 	const onSubmit = data => {
 		reset();
 		addTodo(data);
-		router.push('/');
+		router.push('/todo');
 	};
 	const handleClick = () => {
-		router.push('/');
+		router.push('/todo');
 	};
 
 	return (

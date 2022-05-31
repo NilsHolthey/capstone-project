@@ -1,9 +1,5 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
-const TodoGrid = dynamic(() => import('../src/components/Todos/TodosGrid'), {
-	ssr: false,
-});
+import LandingPage from '../src/components/LandingPage/LandingPage';
 
-export default function Home() {
-	return <TodoGrid />;
+export default function StartPage() {
+	return <LandingPage />;
 }

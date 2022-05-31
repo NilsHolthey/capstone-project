@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledNavbar = styled.nav`
+	visibility: ${props => (props.pathName === '/' ? 'hidden' : 'visible')};
 	display: flex;
 	justify-content: space-around;
 	padding-top: 5px;

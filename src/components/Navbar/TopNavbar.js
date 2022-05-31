@@ -7,8 +7,8 @@ export default function TopNavbar() {
 	const router = useRouter();
 
 	return (
-		<StyledNavbar>
-			<Link passHref href="/">
+		<StyledNavbar pathName={router.pathname}>
+			<Link passHref href="/todo">
 				<NavLink pathName={router.pathname}>DoIT</NavLink>
 			</Link>
 			<Link passHref href="/doingit">
