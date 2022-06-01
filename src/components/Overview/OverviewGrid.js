@@ -11,20 +11,11 @@ export default function OverviewGrid() {
 	const todos = useStore(state => state.todos);
 	const doingIts = useStore(state => state.doingIts);
 
-	const lengthOfTodos = todos.length;
-	const legthOfDoingIts = doingIts.length;
-	const lengthOfDidIts = didIts.length;
-	const sumOfArrays = lengthOfTodos + legthOfDoingIts + lengthOfDidIts;
+	const sumOfTasks = todos.length + doingIts.length + didIts.length;
 
-	const progressTodo = Math.round(
-		(lengthOfTodos / (lengthOfTodos + legthOfDoingIts + lengthOfDidIts)) * 100
-	);
-	const progressDoingIts = Math.round(
-		(legthOfDoingIts / (lengthOfTodos + legthOfDoingIts + lengthOfDidIts)) * 100
-	);
-	const progressDidIts = Math.round(
-		(lengthOfDidIts / (lengthOfTodos + legthOfDoingIts + lengthOfDidIts)) * 100
-	);
+	const progressTodo = Math.round((todos.length / sumOfTasks) * 100);
+	const progressDoingIts = Math.round((doingIts.length / sumOfTasks) * 100);
+	const progressDidIts = Math.round((didIts.length / sumOfTasks) * 100);
 
 	const handleClick = () => {
 		router.push('/todo');
@@ -45,8 +36,8 @@ export default function OverviewGrid() {
 				bgColor="rgba(133, 161, 172, 0.20)"
 				color="#85A1AC"
 				headline="DoIT"
-				sum={sumOfArrays}
-				proportion={lengthOfTodos}
+				sum={sumOfTasks}
+				proportion={todos.length}
 			/>
 			<PercentageOverview
 				boxShadow="0 0 4px 0 rgba(233, 67, 94, 0.30)"
@@ -56,8 +47,8 @@ export default function OverviewGrid() {
 				bgColor="rgba(233, 67, 94, 0.20)"
 				color="#E9435E"
 				headline="DoingIT"
-				sum={sumOfArrays}
-				proportion={legthOfDoingIts}
+				sum={sumOfTasks}
+				proportion={doingIts.length}
 			/>
 			<PercentageOverview
 				boxShadow="0 0 4px 0 rgba(71, 153, 107, 0.30)"
@@ -67,8 +58,8 @@ export default function OverviewGrid() {
 				bgColor="rgba(71, 153, 107, 0.20)"
 				color="#47996B"
 				headline="DidIT"
-				sum={sumOfArrays}
-				proportion={lengthOfDidIts}
+				sum={sumOfTasks}
+				proportion={didIts.length}
 			/>
 		</Wrapper>
 	);
