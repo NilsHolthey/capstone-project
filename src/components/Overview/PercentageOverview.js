@@ -4,6 +4,9 @@ import { CircleTodo } from '../UI/PercentageOverview/CircleTodo.styled';
 import { CircleTodoBg } from '../UI/PercentageOverview/CircleTodoBg.styled';
 import { CircleText } from '../UI/PercentageOverview/CircleText.Styled';
 import { useEffect, useState } from 'react';
+import { InfoBox } from '../UI/PercentageOverview/InfoBox.styled';
+import { Headline } from '../UI/PercentageOverview/Headline.styled';
+import { InfoText } from '../UI/PercentageOverview/InfoText.styled';
 
 export default function PercentageOverview({
 	boxShadow,
@@ -13,6 +16,8 @@ export default function PercentageOverview({
 	color,
 	bgColor,
 	headline,
+	proportion,
+	sum,
 }) {
 	const [progress, setProgress] = useState(0);
 	useEffect(() => {
@@ -26,7 +31,13 @@ export default function PercentageOverview({
 
 	return (
 		<Container boxShadow={boxShadow}>
-			<h4>{headline}</h4>
+			<InfoBox>
+				<Headline backgroundColor={bgColor}>{headline}</Headline>
+				<InfoText>
+					{proportion} of {sum}
+				</InfoText>
+			</InfoBox>
+
 			<CircularProgressDo width={size} height={size} viewBox={viewBox}>
 				<CircleTodoBg
 					fill="none"

@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
-	height: 28vh;
-	width: 42vw;
+	height: 20vh;
+	width: 80vw;
 	padding: 9px;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	gap: 2px;
+	justify-content: space-around;
 	align-items: center;
 	color: #545060;
 	background-color: white;
