@@ -30,6 +30,8 @@ export default function GenericGrid({ todoList, dropzone, TodoComponent }) {
 								key={todo.id}
 								id={todo.id}
 								title={todo.title}
+								description={todo.description}
+								deadline={todo.deadline}
 								index={index}
 							/>
 						);

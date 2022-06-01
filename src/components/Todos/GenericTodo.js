@@ -5,7 +5,15 @@ import { DeleteButton } from '../UI/Button/DeleteButton.styled';
 import { ItemTypes } from '../UI/items';
 import { TodoLi } from '../UI/TodoCard/TodoListItem.styled';
 
-export default function GenericTodo({ title, id, index, moveCard, deleteTodo }) {
+export default function GenericTodo({
+	title,
+	deadline,
+	description,
+	id,
+	index,
+	moveCard,
+	deleteTodo,
+}) {
 	const ref = useRef(null);
 	const [{ handlerId, isOver }, drop] = useDrop({
 		accept: ItemTypes.CARD,
@@ -68,7 +76,9 @@ export default function GenericTodo({ title, id, index, moveCard, deleteTodo }) 
 			data-handler-id={handlerId}
 			background={isOver ? '#e3e3e3' : 'white'}
 		>
-			{title}
+			<p>{title}</p>
+			<p>{deadline}</p>
+			<p>{description}</p>
 			<DeleteButton onClick={handleDelete}>
 				<SvgIcon variant="delete" size="20px" color="#D9D9D9" />
 			</DeleteButton>

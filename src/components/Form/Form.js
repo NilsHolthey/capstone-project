@@ -48,6 +48,52 @@ export default function Form() {
 						})}
 						placeholder="add title"
 					/>
+
+					<label htmlFor="description">Description</label>
+					<textarea
+						id="description"
+						name="description"
+						type="text"
+						aria-invalid={errors.title ? 'true' : 'false'}
+						{...register('description', {
+							required: true,
+							maxLength: 40,
+						})}
+						placeholder="add a short deadline"
+					/>
+					<label htmlFor="deadline">Deadline</label>
+
+					<input
+						id="deadline"
+						name="deadline"
+						type="date"
+						aria-invalid={errors.title ? 'true' : 'false'}
+						{...register('deadline', {
+							required: true,
+						})}
+						placeholder="mm/dd/yyyy"
+					/>
+					<fieldset {...register('category')}>
+						<legend>Level</legend>
+						<input
+							type="radio"
+							value="Flohmarkt"
+							id="kategorie_flohmarkt"
+							{...register('category')}
+						/>
+						<label htmlFor="kategorie_flohmarkt" variant="radio">
+							Flohmarkt
+						</label>
+						<input
+							type="radio"
+							value="Laden"
+							id="kategorie_laden"
+							{...register('category')}
+						/>
+						<label htmlFor="kategorie_laden" variant="radio">
+							Laden
+						</label>
+					</fieldset>
 					<SubmitButton>Submit</SubmitButton>
 				</StyledForm>
 			</FormContainer>
