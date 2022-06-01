@@ -73,26 +73,23 @@ export default function Form() {
 						})}
 						placeholder="mm/dd/yyyy"
 					/>
-					<fieldset {...register('category')}>
+					<fieldset
+						{...register('level', {
+							required: true,
+						})}
+					>
 						<legend>Level</legend>
+						<input type="radio" value="easy" id="level_easy" {...register('level')} />
+						<label htmlFor="level_easy">easy</label>
 						<input
 							type="radio"
-							value="Flohmarkt"
-							id="kategorie_flohmarkt"
-							{...register('category')}
+							value="medium"
+							id="level_medium"
+							{...register('level')}
 						/>
-						<label htmlFor="kategorie_flohmarkt" variant="radio">
-							Flohmarkt
-						</label>
-						<input
-							type="radio"
-							value="Laden"
-							id="kategorie_laden"
-							{...register('category')}
-						/>
-						<label htmlFor="kategorie_laden" variant="radio">
-							Laden
-						</label>
+						<label htmlFor="level_medium">medium</label>
+						<input type="radio" value="hard" id="level_hard" {...register('level')} />
+						<label htmlFor="level_hard">hard</label>
 					</fieldset>
 					<SubmitButton>Submit</SubmitButton>
 				</StyledForm>

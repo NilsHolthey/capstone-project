@@ -3,9 +3,11 @@ import { useDrag, useDrop } from 'react-dnd';
 import SvgIcon from '../SVGs/icons';
 import { DeleteButton } from '../UI/Button/DeleteButton.styled';
 import { ItemTypes } from '../UI/items';
+import { StyledDiv } from '../UI/TodoCard/StyledDiv.styled';
 import { TodoLi } from '../UI/TodoCard/TodoListItem.styled';
 
 export default function GenericTodo({
+	level,
 	title,
 	deadline,
 	description,
@@ -79,6 +81,8 @@ export default function GenericTodo({
 			<p>{title}</p>
 			<p>{deadline}</p>
 			<p>{description}</p>
+			{level === 'easy' ? <StyledDiv variant="complexity-easy"> </StyledDiv> : ''}
+			<p>{level}</p>
 			<DeleteButton onClick={handleDelete}>
 				<SvgIcon variant="delete" size="20px" color="#D9D9D9" />
 			</DeleteButton>

@@ -12,18 +12,21 @@ const useStore = create(
 					title: 'Tax return 2021',
 					description: 'need do do all my taxes',
 					deadline: '22-11-2022',
+					level: 'medium',
 				},
 				{
 					id: 'BnDYZAGVaU8MTPTkysvfU',
 					title: 'Personal Website',
 					description: 'I need to update my profile picture',
 					deadline: '22-11-2022',
+					level: 'easy',
 				},
 				{
 					id: 'TUfMKV3g0KJPa5Qiq5boa',
 					title: 'Capstone Project',
 					description: 'write 2 new userStories',
 					deadline: '22-11-2022',
+					level: 'medium',
 				},
 			],
 			didIts: [
@@ -32,12 +35,14 @@ const useStore = create(
 					title: 'gitHub',
 					description: 'update my gitHub readme',
 					deadline: '22-11-2022',
+					level: 'easy',
 				},
 				{
 					id: '6HW1op2QThpUiWXAD-MVK',
 					title: 'Invitations',
 					description: 'send invitations for Johns B-day per email',
 					deadline: '22-11-2022',
+					level: 'hard',
 				},
 			],
 			doingIts: [
@@ -46,24 +51,28 @@ const useStore = create(
 					title: 'Gift for John',
 					description: 'have to make foto collection for his birthday',
 					deadline: '22-11-2022',
+					level: 'hard',
 				},
 				{
 					id: '8jMQoM3rwheGryUGdTYkS',
 					title: 'Export default vs. named export',
 					description: 'Modern Moose',
 					deadline: '22-11-2022',
+					level: 'easy',
 				},
 				{
 					id: 'jfZ85d_kDkqEmzvdZ25Nx',
 					title: 'XY presentation',
 					description: 'start my presentation for work',
 					deadline: '22-11-2022',
+					level: 'hard',
 				},
 				{
 					id: 'QHx9uNRvffME2qkUmPmdM',
 					title: 'Single page applications',
 					description: 'refactor quizz app',
 					deadline: '22-11-2022',
+					level: 'easy',
 				},
 			],
 			addTodo: todo => {
@@ -74,6 +83,7 @@ const useStore = create(
 							title: todo.title,
 							description: todo.description,
 							deadline: todo.deadline,
+							level: todo.level,
 						});
 					})
 				);
