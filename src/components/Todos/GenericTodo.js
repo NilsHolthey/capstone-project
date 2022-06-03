@@ -3,8 +3,11 @@ import { useDrag, useDrop } from 'react-dnd';
 import SvgIcon from '../SVGs/icons';
 import { DeleteButton } from '../UI/Button/DeleteButton.styled';
 import { ItemTypes } from '../UI/items';
+import { Deadline } from '../UI/TodoCard/DeadlineContainer.styled';
+import { DescriptionContainer } from '../UI/TodoCard/DescriptionContainer.styled';
 import { StyledDiv } from '../UI/TodoCard/StyledDiv.styled';
 import { TodoLi } from '../UI/TodoCard/TodoListItem.styled';
+import { TodoText } from '../UI/TodoCard/TodoText.styled';
 
 export default function GenericTodo({
 	level,
@@ -78,11 +81,17 @@ export default function GenericTodo({
 			data-handler-id={handlerId}
 			background={isOver ? '#e3e3e3' : 'white'}
 		>
-			<p>{title}</p>
-			<p>{deadline}</p>
-			<p>{description}</p>
-			{level === 'easy' ? <StyledDiv variant="complexity-easy"> </StyledDiv> : ''}
-			<p>{level}</p>
+			<TodoText variant="title">{title}</TodoText>
+			<DescriptionContainer>
+				<TodoText variant="description">{description}</TodoText>
+			</DescriptionContainer>
+			{level === 'easy' ? <StyledDiv variant="easy"> </StyledDiv> : ''}
+			{level === 'medium' ? <StyledDiv variant="medium"> </StyledDiv> : ''}
+			{level === 'hard' ? <StyledDiv variant="hard"> </StyledDiv> : ''}
+			<Deadline>
+				<SvgIcon variant="calendar" size="1.1rem" color="#D9D9D9" />
+				{deadline}
+			</Deadline>
 			<DeleteButton onClick={handleDelete}>
 				<SvgIcon variant="delete" size="20px" color="#D9D9D9" />
 			</DeleteButton>

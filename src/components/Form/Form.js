@@ -11,16 +11,23 @@ import useStore from '../../lib/useStore';
 
 export default function Form() {
 	const addTodo = useStore(state => state.addTodo);
-
+	function empty() {
+		var x;
+		x = document.getElementById('title').value;
+		if (x == ' ') {
+			alert('Please ensure you fill in the form correctly.');
+		}
+	}
 	const router = useRouter();
 	const {
 		register,
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm('');
+	} = useForm();
 
 	const onSubmit = data => {
+		empty(data);
 		reset();
 		addTodo(data);
 		router.push('/todo');
@@ -39,40 +46,61 @@ export default function Form() {
 					<label htmlFor="title">Title</label>
 					<input
 						id="title"
-						name="title"
 						type="text"
 						aria-invalid={errors.title ? 'true' : 'false'}
 						{...register('title', {
 							required: true,
-							maxLength: 20,
+							pattern: /\S(.*\S)?/,
+							maxLength: 30,
 						})}
 						placeholder="add title"
 					/>
+					{errors.title && errors.title.type === 'required' && (
+						<span>Please enter a title</span>
+					)}
+					{errors.title && errors.title.type === 'pattern' && (
+						<span>Please enter a title</span>
+					)}
+					{errors.title && errors.title.type === 'maxLength' && (
+						<span>Please use less than 30 characters</span>
+					)}
 
 					<label htmlFor="description">Description</label>
 					<textarea
 						id="description"
-						name="description"
 						type="text"
-						aria-invalid={errors.title ? 'true' : 'false'}
+						aria-invalid={errors.description ? 'true' : 'false'}
 						{...register('description', {
 							required: true,
-							maxLength: 40,
+							pattern: /\S(.*\S)?/,
+							maxLength: 100,
 						})}
-						placeholder="add a short deadline"
+						placeholder="add a short description"
 					/>
+					{errors.description && errors.description.type === 'required' && (
+						<span>Please enter a description</span>
+					)}
+					{errors.description && errors.description.type === 'pattern' && (
+						<span>Please enter a description</span>
+					)}
+					{errors.description && errors.description.type === 'maxLength' && (
+						<span>Please use less than 100 characters</span>
+					)}
 					<label htmlFor="deadline">Deadline</label>
 
 					<input
 						id="deadline"
 						name="deadline"
 						type="date"
-						aria-invalid={errors.title ? 'true' : 'false'}
+						aria-invalid={errors.deadline ? 'true' : 'false'}
 						{...register('deadline', {
 							required: true,
 						})}
 						placeholder="mm/dd/yyyy"
 					/>
+					{errors.deadline && errors.deadline.type === 'required' && (
+						<span>Please enter a deadline</span>
+					)}
 					<fieldset
 						{...register('level', {
 							required: true,
@@ -85,7 +113,9 @@ export default function Form() {
 							type="radio"
 							value="medium"
 							id="level_medium"
-							{...register('level')}
+							{...register('level', {
+								required: true,
+							})}
 						/>
 						<label htmlFor="level_medium">medium</label>
 						<input type="radio" value="hard" id="level_hard" {...register('level')} />
