@@ -9,4 +9,6 @@ export const ListHeadline = styled.h2`
 	top: 1px;
 	z-index: 1;
 	background-color: white;
+
+	text-align: center;
 `;

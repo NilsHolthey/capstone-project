@@ -8,6 +8,14 @@ import { useRouter } from 'next/router';
 import SvgIcon from '../SVGs/icons';
 import { NavButton } from '../UI/Button/NavButton.styled';
 import useStore from '../../lib/useStore';
+import { Input } from '../UI/Form/Input.styled';
+import { Textarea } from '../UI/Form/Texarea.styled';
+import { InputRadio } from '../UI/Form/InputRadio.styled';
+
+import { Fieldset } from '../UI/Form/Fieldset.styled';
+import { Label } from '../UI/Form/Label.styled';
+import { ButtonContainer } from '../UI/Form/ButtonContainer.styled';
+import { LabelRadio } from '../UI/Form/LabelRadio.styled';
 
 export default function Form() {
 	const addTodo = useStore(state => state.addTodo);
@@ -28,9 +36,14 @@ export default function Form() {
 
 	const onSubmit = data => {
 		empty(data);
-		reset();
+
 		addTodo(data);
-		router.push('/todo');
+		setTimeout(() => {
+			router.push('/todo');
+		}, 3000);
+		setTimeout(() => {
+			reset();
+		}, 2000);
 	};
 	const handleClick = () => {
 		router.push('/todo');
@@ -43,8 +56,8 @@ export default function Form() {
 			</NavButton>
 			<FormContainer>
 				<StyledForm onSubmit={handleSubmit(onSubmit)}>
-					<label htmlFor="title">Title</label>
-					<input
+					<Label htmlFor="title">Title:</Label>
+					<Input
 						id="title"
 						type="text"
 						aria-invalid={errors.title ? 'true' : 'false'}
@@ -53,7 +66,7 @@ export default function Form() {
 							pattern: /\S(.*\S)?/,
 							maxLength: 30,
 						})}
-						placeholder="add title"
+						placeholder="..."
 					/>
 					{errors.title && errors.title.type === 'required' && (
 						<span>Please enter a title</span>
@@ -65,8 +78,8 @@ export default function Form() {
 						<span>Please use less than 30 characters</span>
 					)}
 
-					<label htmlFor="description">Description</label>
-					<textarea
+					<Label htmlFor="description">Description:</Label>
+					<Textarea
 						id="description"
 						type="text"
 						aria-invalid={errors.description ? 'true' : 'false'}
@@ -75,7 +88,7 @@ export default function Form() {
 							pattern: /\S(.*\S)?/,
 							maxLength: 100,
 						})}
-						placeholder="add a short description"
+						placeholder="..."
 					/>
 					{errors.description && errors.description.type === 'required' && (
 						<span>Please enter a description</span>
@@ -86,9 +99,9 @@ export default function Form() {
 					{errors.description && errors.description.type === 'maxLength' && (
 						<span>Please use less than 100 characters</span>
 					)}
-					<label htmlFor="deadline">Deadline</label>
+					<Label htmlFor="deadline">Deadline:</Label>
 
-					<input
+					<Input
 						id="deadline"
 						name="deadline"
 						type="date"
@@ -96,32 +109,55 @@ export default function Form() {
 						{...register('deadline', {
 							required: true,
 						})}
-						placeholder="mm/dd/yyyy"
+						placeholder="MM/DD/YYYY"
 					/>
 					{errors.deadline && errors.deadline.type === 'required' && (
 						<span>Please enter a deadline</span>
 					)}
-					<fieldset
+					<Label htmlFor="level">Level:</Label>
+					<Fieldset
+						id="level"
+						name="level"
 						{...register('level', {
 							required: true,
 						})}
 					>
-						<legend>Level</legend>
-						<input type="radio" value="easy" id="level_easy" {...register('level')} />
-						<label htmlFor="level_easy">easy</label>
-						<input
-							type="radio"
-							value="medium"
-							id="level_medium"
-							{...register('level', {
-								required: true,
-							})}
-						/>
-						<label htmlFor="level_medium">medium</label>
-						<input type="radio" value="hard" id="level_hard" {...register('level')} />
-						<label htmlFor="level_hard">hard</label>
-					</fieldset>
-					<SubmitButton>Submit</SubmitButton>
+						<LabelRadio htmlFor="level_easy">
+							<InputRadio
+								variant="easy"
+								type="radio"
+								value="easy"
+								id="level_easy"
+								{...register('level')}
+							/>
+							easy
+						</LabelRadio>
+						<LabelRadio htmlFor="level_medium">
+							<InputRadio
+								variant="medium"
+								type="radio"
+								value="medium"
+								id="level_medium"
+								{...register('level', {
+									required: true,
+								})}
+							/>
+							medium
+						</LabelRadio>
+						<LabelRadio htmlFor="level_hard">
+							<InputRadio
+								variant="hard"
+								type="radio"
+								value="hard"
+								id="level_hard"
+								{...register('level')}
+							/>
+							hard
+						</LabelRadio>
+					</Fieldset>
+					<ButtonContainer>
+						<SubmitButton>Submit</SubmitButton>
+					</ButtonContainer>
 				</StyledForm>
 			</FormContainer>
 		</Wrapper>

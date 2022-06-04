@@ -38,6 +38,10 @@ export default class MyDocument extends Document {
 						href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
 						rel="stylesheet"
 					/>
+					<link
+						href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+						rel="stylesheet"
+					/>
 				</Head>
 				<body>
 					<Main />

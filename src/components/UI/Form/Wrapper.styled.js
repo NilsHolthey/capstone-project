@@ -7,4 +7,5 @@ export const Wrapper = styled.div`
 	align-items: center;
 	min-height: 70vh;
 	position: relative;
+	width: 100%;
 `;

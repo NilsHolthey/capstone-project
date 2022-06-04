@@ -7,7 +7,7 @@ export const StyledNavbar = styled.nav`
 	align-items: flex-end;
 	padding-top: 5px;
 	width: 100vw;
-	-sposition: fixed;
+	position: ${props => (props.pathName === '/' ? 'fixed' : 'relative')};
 
 	background: rgba(205, 209, 220, 0.8);
 	z-index: 10;
