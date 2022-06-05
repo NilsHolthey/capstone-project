@@ -6,6 +6,6 @@ export const Container = styled.section`
 	width: 340px;
 	height: 15vh;
 	position: absolute;
-	top: 5%;
+	top: 3%;
 	z-index: 1;
 `;

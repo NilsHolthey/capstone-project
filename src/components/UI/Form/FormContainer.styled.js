@@ -6,6 +6,7 @@ export const FormContainer = styled.div`
 	border-radius: 16px 16px 0 0;
 	box-shadow: 0 0 8px 0 #6667ab;
 	padding-top: 16px;
+
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
@@ -18,7 +19,7 @@ export const FormContainer = styled.div`
 
 	@keyframes SlideAnimation {
 		to {
-			transform: translate(-50%, -30%) scale(1, 1);
+			transform: translate(-50%, -25%) scale(1, 1);
 		}
 	}
 `;

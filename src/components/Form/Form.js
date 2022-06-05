@@ -48,6 +48,7 @@ export default function Form() {
 		<Wrapper>
 			<NavButton type="button" onClick={handleClick}>
 				<SvgIcon variant="chevronLeftCircle" size="20px" color="#6667ab" />
+				Go Back
 			</NavButton>
 			<FormIllustration />
 			<FormContainer>
