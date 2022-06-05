@@ -3,7 +3,9 @@ import styled from 'styled-components';
 export const Container = styled.section`
 	display: flex;
 	justify-content: flex-end;
-	width: 80vw;
+	width: 340px;
 	height: 15vh;
-	background-color: transparent;
+	position: absolute;
+	top: 5%;
+	z-index: 1;
 `;

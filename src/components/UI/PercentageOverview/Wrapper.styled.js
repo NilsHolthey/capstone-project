@@ -17,5 +17,5 @@ export const Wrapper = styled.section`
 	);
 	border-radius: 20px 20px 0 0;
 	box-shadow: 0 0 6px 0 #f6f6f6;
-	margin: 15px 15px 0 15px;
+	margin: 15px 15px 25px 15px;
 `;

@@ -17,6 +17,7 @@ import { Label } from '../UI/Form/Label.styled';
 import { ButtonContainer } from '../UI/Form/ButtonContainer.styled';
 import { LabelRadio } from '../UI/Form/LabelRadio.styled';
 import { ErrorMessage } from '../UI/Form/ErrorMessage.styled';
+import FormIllustration from '../SVGs/illustrations/FormIllustration';
 
 export default function Form() {
 	const addTodo = useStore(state => state.addTodo);
@@ -48,6 +49,7 @@ export default function Form() {
 			<NavButton type="button" onClick={handleClick}>
 				<SvgIcon variant="chevronLeftCircle" size="20px" color="#6667ab" />
 			</NavButton>
+			<FormIllustration />
 			<FormContainer>
 				<StyledForm onSubmit={handleSubmit(onSubmit)}>
 					<Label htmlFor="title">Title:</Label>
