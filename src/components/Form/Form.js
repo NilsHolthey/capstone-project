@@ -16,16 +16,11 @@ import { Fieldset } from '../UI/Form/Fieldset.styled';
 import { Label } from '../UI/Form/Label.styled';
 import { ButtonContainer } from '../UI/Form/ButtonContainer.styled';
 import { LabelRadio } from '../UI/Form/LabelRadio.styled';
+import { ErrorMessage } from '../UI/Form/ErrorMessage.styled';
 
 export default function Form() {
 	const addTodo = useStore(state => state.addTodo);
-	function empty() {
-		var x;
-		x = document.getElementById('title').value;
-		if (x == ' ') {
-			alert('Please ensure you fill in the form correctly.');
-		}
-	}
+
 	const router = useRouter();
 	const {
 		register,
@@ -35,15 +30,14 @@ export default function Form() {
 	} = useForm();
 
 	const onSubmit = data => {
-		empty(data);
-
 		addTodo(data);
+
 		setTimeout(() => {
 			router.push('/todo');
-		}, 3000);
+		}, 2000);
 		setTimeout(() => {
 			reset();
-		}, 2000);
+		}, 1000);
 	};
 	const handleClick = () => {
 		router.push('/todo');
@@ -69,13 +63,22 @@ export default function Form() {
 						placeholder="..."
 					/>
 					{errors.title && errors.title.type === 'required' && (
-						<span>Please enter a title</span>
+						<ErrorMessage>
+							<SvgIcon variant="alert" size="0.9rem" color="red" />
+							Please enter a title
+						</ErrorMessage>
 					)}
 					{errors.title && errors.title.type === 'pattern' && (
-						<span>Please enter a title</span>
+						<ErrorMessage>
+							<SvgIcon variant="alert" size="0.9rem" color="red" />
+							Please enter a title
+						</ErrorMessage>
 					)}
 					{errors.title && errors.title.type === 'maxLength' && (
-						<span>Please use less than 30 characters</span>
+						<ErrorMessage>
+							<SvgIcon variant="alert" size="0.9rem" color="red" />
+							Please use less than 30 characters
+						</ErrorMessage>
 					)}
 
 					<Label htmlFor="description">Description:</Label>
@@ -91,13 +94,22 @@ export default function Form() {
 						placeholder="..."
 					/>
 					{errors.description && errors.description.type === 'required' && (
-						<span>Please enter a description</span>
+						<ErrorMessage>
+							<SvgIcon variant="alert" size="0.9rem" color="red" />
+							Please enter a description
+						</ErrorMessage>
 					)}
 					{errors.description && errors.description.type === 'pattern' && (
-						<span>Please enter a description</span>
+						<ErrorMessage>
+							<SvgIcon variant="alert" size="0.9rem" color="red" />
+							Please enter a description
+						</ErrorMessage>
 					)}
 					{errors.description && errors.description.type === 'maxLength' && (
-						<span>Please use less than 100 characters</span>
+						<ErrorMessage>
+							<SvgIcon variant="alert" size="0.9rem" color="red" />
+							Please use less than 100 characters
+						</ErrorMessage>
 					)}
 					<Label htmlFor="deadline">Deadline:</Label>
 
@@ -112,7 +124,10 @@ export default function Form() {
 						placeholder="MM/DD/YYYY"
 					/>
 					{errors.deadline && errors.deadline.type === 'required' && (
-						<span>Please enter a deadline</span>
+						<ErrorMessage>
+							<SvgIcon variant="alert" size="0.9rem" color="red" />
+							Please enter a deadline
+						</ErrorMessage>
 					)}
 					<Label htmlFor="level">Level:</Label>
 					<Fieldset

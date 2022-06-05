@@ -9,6 +9,7 @@ export const Input = styled.input`
 		border: 2px solid #6667ab;
 		box-shadow: 0 0 4px 0 #6667ab;
 		outline: none;
+		background-color: rgba(102, 103, 171, 0.1);
 	}
 	&::placeholder {
 		font-family: 'Inter', sans-serif;

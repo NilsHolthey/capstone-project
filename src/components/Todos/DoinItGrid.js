@@ -12,6 +12,7 @@ export default function DoinItGrid() {
 			todoList={doingIts}
 			dropzone={<Dropzone onMove={moveToDidIt} />}
 			TodoComponent={DoingIt}
+			headline="DoingIT"
 		/>
 	);
 }

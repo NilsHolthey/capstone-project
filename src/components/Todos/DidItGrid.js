@@ -5,5 +5,5 @@ import GenericGrid from './GenericGrid';
 export default function DidItGrid() {
 	const didIts = useStore(state => state.didIts);
 
-	return <GenericGrid todoList={didIts} TodoComponent={DidIt} />;
+	return <GenericGrid todoList={didIts} TodoComponent={DidIt} headline="DidIT" />;
 }

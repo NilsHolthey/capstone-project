@@ -7,4 +7,5 @@ export const SubmitButton = styled.button`
 	width: 45%;
 	padding: 0.5rem;
 	color: #f6f6f6;
+	transition: all 0.5s;
 `;
