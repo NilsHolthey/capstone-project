@@ -1,5 +1,4 @@
 import { Container } from '../UI/Grid/Container';
-import { ListHeadline } from '../UI/TodoCard/ListHeadline.styled';
 import DropWrapper from './DropWrapper';
 import { useDrop } from 'react-dnd';
 import { ItemTypes } from '../UI/items';
@@ -17,7 +16,11 @@ export default function GenericGrid({ headline, todoList, dropzone, TodoComponen
 	return (
 		<Container>
 			{dropzone}
+
 			<ListHeadline>{headline}</ListHeadline>
+
+
+
 			<DropWrapper>
 				<TodoList
 					ref={drop}
