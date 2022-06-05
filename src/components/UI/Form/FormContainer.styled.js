@@ -15,7 +15,7 @@ export const FormContainer = styled.div`
 	height: 70vh;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, 110%) scale(0.8, 0.5);
+	transform: translate(-50%, 110%) scale(1, 0.5);
 
 	@keyframes SlideAnimation {
 		to {

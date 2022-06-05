@@ -1,6 +1,5 @@
 import React from 'react';
 import PercentageOverview from './PercentageOverview';
-import { useRouter } from 'next/router';
 import { Wrapper } from '../UI/PercentageOverview/Wrapper.styled';
 import useStore from '../../lib/useStore';
 import { NavButton } from '../UI/Button/NavButton.styled';
@@ -18,9 +17,8 @@ export default function OverviewGrid() {
 	const progressDidIts = Math.round((didIts.length / sumOfTasks) * 100);
 
 	const handleClick = () => {
-		router.push('/todo');
+		window.history.back();
 	};
-	const router = useRouter();
 
 	return (
 		<Wrapper>

@@ -4,7 +4,6 @@ import { FormContainer } from '../UI/Form/FormContainer.styled';
 import { StyledForm } from '../UI/Form/Form.styled';
 import { Wrapper } from '../UI/Form/Wrapper.styled';
 import { SubmitButton } from '../UI/Button/SubmitButton.styled';
-import { useRouter } from 'next/router';
 import SvgIcon from '../SVGs/icons';
 import { NavButton } from '../UI/Button/NavButton.styled';
 import useStore from '../../lib/useStore';
@@ -22,7 +21,6 @@ import FormIllustration from '../SVGs/illustrations/FormIllustration';
 export default function Form() {
 	const addTodo = useStore(state => state.addTodo);
 
-	const router = useRouter();
 	const {
 		register,
 		handleSubmit,
@@ -34,14 +32,14 @@ export default function Form() {
 		addTodo(data);
 
 		setTimeout(() => {
-			router.push('/todo');
+			window.history.back();
 		}, 2000);
 		setTimeout(() => {
 			reset();
 		}, 1000);
 	};
 	const handleClick = () => {
-		router.push('/todo');
+		window.history.back();
 	};
 
 	return (

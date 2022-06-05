@@ -17,7 +17,7 @@ export default function Footer() {
 			</Link>
 			<Link passHref href="/todo">
 				<HomeIcon pathName={router.pathname}>
-					<SvgIcon variant="home" size="40px" color="white" />
+					<SvgIcon variant="home" size="35px" color="white" />
 				</HomeIcon>
 			</Link>
 			<Link passHref href="/overview">
