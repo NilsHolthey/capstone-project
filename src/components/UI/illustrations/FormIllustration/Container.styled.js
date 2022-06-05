@@ -4,8 +4,8 @@ export const Container = styled.section`
 	display: flex;
 	justify-content: flex-end;
 	width: 340px;
-	height: 15vh;
+	height: 17vh;
 	position: absolute;
-	top: 3%;
+	top: 7%;
 	z-index: 1;
 `;

@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledNavbar = styled.nav`
-	visibility: ${props =>
-		props.pathName === '/' || props.pathName === '/overview' ? 'hidden' : 'visible'};
+	visibility: ${props => (props.pathName === '/' ? 'hidden' : 'visible')};
 	display: flex;
 	justify-content: space-around;
 	align-items: flex-end;

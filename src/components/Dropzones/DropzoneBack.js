@@ -18,6 +18,7 @@ export default function DropzoneB({ children, onMove }) {
 		<DropzoneBack ref={drop} background={isOver ? '#d5c3dd' : '#f6f6f6'}>
 			{children}
 			<SvgIcon variant="dropzone" size="50px" color="#6667ab" />
+			<p>DnD Item to prev list</p>
 		</DropzoneBack>
 	);
 }

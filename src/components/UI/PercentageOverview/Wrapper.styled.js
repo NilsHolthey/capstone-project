@@ -4,9 +4,10 @@ export const Wrapper = styled.section`
 	display: flex;
 
 	height: 90vh;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	flex-direction: column;
+	padding-top: 1rem;
 	gap: 5px;
 	background: rgb(255, 255, 255);
 	background: linear-gradient(

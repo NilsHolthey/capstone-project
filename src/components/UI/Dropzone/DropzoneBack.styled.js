@@ -8,8 +8,10 @@ export const DropzoneBack = styled.article`
 	border-radius: 8px;
 	opacity: 0.9;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
 	align-items: center;
+	flex-direction: column;
+	font-size: 10px;
 	height: 105px;
 	width: 150px;
 	position: sticky;

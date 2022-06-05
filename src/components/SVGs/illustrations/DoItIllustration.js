@@ -5,7 +5,7 @@ export default function DoItIllustration() {
 		<DoItSvg
 			data-name="Layer 1"
 			xmlns="http://www.w3.org/2000/svg"
-			width="534.67004/6"
+			width="160.21934"
 			height="125"
 			viewBox="0 0 534.67004 589.09463"
 		>
