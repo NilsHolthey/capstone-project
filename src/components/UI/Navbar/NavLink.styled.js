@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const NavLink = styled.a`
 	display: flex;
 	align-items: center;
+
 	text-decoration: none;
 	font-weight: bolder;
 	color: ${props => (props.href === props.pathName ? '#6667ab' : '#545060')};

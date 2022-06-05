@@ -6,10 +6,13 @@ export const Dropzone = styled.div`
 	border: dashed 2px #6667ab;
 	background: ${({ background = '#d5c3dd' }) => background};
 	border-radius: 8px;
-	opacity: 0.5;
+	opacity: 0.9;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 60px;
 	width: 340px;
+	position: sticky;
+	top: 25px;
+	z-index: 2;
 `;

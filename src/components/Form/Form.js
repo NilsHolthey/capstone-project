@@ -8,6 +8,15 @@ import { useRouter } from 'next/router';
 import SvgIcon from '../SVGs/icons';
 import { NavButton } from '../UI/Button/NavButton.styled';
 import useStore from '../../lib/useStore';
+import { Input } from '../UI/Form/Input.styled';
+import { Textarea } from '../UI/Form/Texarea.styled';
+import { InputRadio } from '../UI/Form/InputRadio.styled';
+
+import { Fieldset } from '../UI/Form/Fieldset.styled';
+import { Label } from '../UI/Form/Label.styled';
+import { ButtonContainer } from '../UI/Form/ButtonContainer.styled';
+import { LabelRadio } from '../UI/Form/LabelRadio.styled';
+import { ErrorMessage } from '../UI/Form/ErrorMessage.styled';
 
 export default function Form() {
 	const addTodo = useStore(state => state.addTodo);
@@ -18,12 +27,17 @@ export default function Form() {
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm('');
+	} = useForm();
 
 	const onSubmit = data => {
-		reset();
 		addTodo(data);
-		router.push('/todo');
+
+		setTimeout(() => {
+			router.push('/todo');
+		}, 2000);
+		setTimeout(() => {
+			reset();
+		}, 1000);
 	};
 	const handleClick = () => {
 		router.push('/todo');
@@ -36,19 +50,129 @@ export default function Form() {
 			</NavButton>
 			<FormContainer>
 				<StyledForm onSubmit={handleSubmit(onSubmit)}>
-					<label htmlFor="title">Title</label>
-					<input
+					<Label htmlFor="title">Title:</Label>
+					<Input
 						id="title"
-						name="title"
 						type="text"
 						aria-invalid={errors.title ? 'true' : 'false'}
 						{...register('title', {
 							required: true,
-							maxLength: 20,
+							pattern: /\S(.*\S)?/,
+							maxLength: 30,
 						})}
-						placeholder="add title"
+						placeholder="..."
 					/>
-					<SubmitButton>Submit</SubmitButton>
+					{errors.title && errors.title.type === 'required' && (
+						<ErrorMessage>
+							<SvgIcon variant="alert" size="0.9rem" color="red" />
+							Please enter a title
+						</ErrorMessage>
+					)}
+					{errors.title && errors.title.type === 'pattern' && (
+						<ErrorMessage>
+							<SvgIcon variant="alert" size="0.9rem" color="red" />
+							Please enter a title
+						</ErrorMessage>
+					)}
+					{errors.title && errors.title.type === 'maxLength' && (
+						<ErrorMessage>
+							<SvgIcon variant="alert" size="0.9rem" color="red" />
+							Please use less than 30 characters
+						</ErrorMessage>
+					)}
+
+					<Label htmlFor="description">Description:</Label>
+					<Textarea
+						id="description"
+						type="text"
+						aria-invalid={errors.description ? 'true' : 'false'}
+						{...register('description', {
+							required: true,
+							pattern: /\S(.*\S)?/,
+							maxLength: 100,
+						})}
+						placeholder="..."
+					/>
+					{errors.description && errors.description.type === 'required' && (
+						<ErrorMessage>
+							<SvgIcon variant="alert" size="0.9rem" color="red" />
+							Please enter a description
+						</ErrorMessage>
+					)}
+					{errors.description && errors.description.type === 'pattern' && (
+						<ErrorMessage>
+							<SvgIcon variant="alert" size="0.9rem" color="red" />
+							Please enter a description
+						</ErrorMessage>
+					)}
+					{errors.description && errors.description.type === 'maxLength' && (
+						<ErrorMessage>
+							<SvgIcon variant="alert" size="0.9rem" color="red" />
+							Please use less than 100 characters
+						</ErrorMessage>
+					)}
+					<Label htmlFor="deadline">Deadline:</Label>
+
+					<Input
+						id="deadline"
+						name="deadline"
+						type="date"
+						aria-invalid={errors.deadline ? 'true' : 'false'}
+						{...register('deadline', {
+							required: true,
+						})}
+						placeholder="MM/DD/YYYY"
+					/>
+					{errors.deadline && errors.deadline.type === 'required' && (
+						<ErrorMessage>
+							<SvgIcon variant="alert" size="0.9rem" color="red" />
+							Please enter a deadline
+						</ErrorMessage>
+					)}
+					<Label htmlFor="level">Level:</Label>
+					<Fieldset
+						id="level"
+						name="level"
+						{...register('level', {
+							required: true,
+						})}
+					>
+						<LabelRadio htmlFor="level_easy">
+							<InputRadio
+								variant="easy"
+								type="radio"
+								value="easy"
+								id="level_easy"
+								{...register('level')}
+							/>
+							easy
+						</LabelRadio>
+						<LabelRadio htmlFor="level_medium">
+							<InputRadio
+								variant="medium"
+								type="radio"
+								value="medium"
+								id="level_medium"
+								{...register('level', {
+									required: true,
+								})}
+							/>
+							medium
+						</LabelRadio>
+						<LabelRadio htmlFor="level_hard">
+							<InputRadio
+								variant="hard"
+								type="radio"
+								value="hard"
+								id="level_hard"
+								{...register('level')}
+							/>
+							hard
+						</LabelRadio>
+					</Fieldset>
+					<ButtonContainer>
+						<SubmitButton>Submit</SubmitButton>
+					</ButtonContainer>
 				</StyledForm>
 			</FormContainer>
 		</Wrapper>

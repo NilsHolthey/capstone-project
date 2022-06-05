@@ -11,19 +11,22 @@ const useStore = create(
 					id: '66FIlm5YBtTFqndyPlMGA',
 					title: 'Tax return 2021',
 					description: 'need do do all my taxes',
-					status: 'doIt',
+					deadline: '2022-11-22',
+					level: 'medium',
 				},
 				{
 					id: 'BnDYZAGVaU8MTPTkysvfU',
 					title: 'Personal Website',
 					description: 'I need to update my profile picture',
-					status: 'doIt',
+					deadline: '2022-11-22',
+					level: 'easy',
 				},
 				{
 					id: 'TUfMKV3g0KJPa5Qiq5boa',
 					title: 'Capstone Project',
 					description: 'write 2 new userStories',
-					status: 'doIt',
+					deadline: '2022-11-22',
+					level: 'medium',
 				},
 			],
 			didIts: [
@@ -31,13 +34,15 @@ const useStore = create(
 					id: 'bMrcHIV9zyJeyf2sdijq_',
 					title: 'gitHub',
 					description: 'update my gitHub readme',
-					status: 'didIt',
+					deadline: '2022-11-22',
+					level: 'easy',
 				},
 				{
 					id: '6HW1op2QThpUiWXAD-MVK',
 					title: 'Invitations',
 					description: 'send invitations for Johns B-day per email',
-					status: 'didIt',
+					deadline: '2022-11-22',
+					level: 'hard',
 				},
 			],
 			doingIts: [
@@ -45,31 +50,41 @@ const useStore = create(
 					id: 'i6b8es2cISprMyjgbg1lk',
 					title: 'Gift for John',
 					description: 'have to make foto collection for his birthday',
-					status: 'doingIt',
+					deadline: '2022-11-22',
+					level: 'hard',
 				},
 				{
 					id: '8jMQoM3rwheGryUGdTYkS',
 					title: 'Export default vs. named export',
 					description: 'Modern Moose',
-					status: 'doingIt',
+					deadline: '2022-11-22',
+					level: 'easy',
 				},
 				{
 					id: 'jfZ85d_kDkqEmzvdZ25Nx',
 					title: 'XY presentation',
 					description: 'start my presentation for work',
-					status: 'doingIt',
+					deadline: '2022-11-22',
+					level: 'hard',
 				},
 				{
 					id: 'QHx9uNRvffME2qkUmPmdM',
 					title: 'Single page applications',
 					description: 'refactor quizz app',
-					status: 'doingIt',
+					deadline: '2022-11-22',
+					level: 'easy',
 				},
 			],
 			addTodo: todo => {
 				set(
 					produce(draft => {
-						draft.todos.push({ id: nanoid(), title: todo.title });
+						draft.todos.push({
+							id: nanoid(),
+							title: todo.title,
+							description: todo.description,
+							deadline: todo.deadline,
+							level: todo.level,
+						});
 					})
 				);
 			},

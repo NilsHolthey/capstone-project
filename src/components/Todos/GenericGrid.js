@@ -4,7 +4,7 @@ import { useDrop } from 'react-dnd';
 import { ItemTypes } from '../UI/items';
 import { TodoList } from '../UI/TodoCard/TodoList.styled';
 
-export default function GenericGrid({ todoList, dropzone, TodoComponent }) {
+export default function GenericGrid({  todoList, dropzone, TodoComponent }) {
 	const [{ isOver }, drop] = useDrop({
 		accept: ItemTypes.CARD,
 
@@ -16,6 +16,9 @@ export default function GenericGrid({ todoList, dropzone, TodoComponent }) {
 	return (
 		<Container>
 			{dropzone}
+
+			
+
 
 			<DropWrapper>
 				<TodoList
@@ -29,6 +32,9 @@ export default function GenericGrid({ todoList, dropzone, TodoComponent }) {
 								key={todo.id}
 								id={todo.id}
 								title={todo.title}
+								description={todo.description}
+								deadline={todo.deadline}
+								level={todo.level}
 								index={index}
 							/>
 						);

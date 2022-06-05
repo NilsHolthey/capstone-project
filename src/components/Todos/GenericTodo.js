@@ -3,9 +3,22 @@ import { useDrag, useDrop } from 'react-dnd';
 import SvgIcon from '../SVGs/icons';
 import { DeleteButton } from '../UI/Button/DeleteButton.styled';
 import { ItemTypes } from '../UI/items';
+import { Deadline } from '../UI/TodoCard/DeadlineContainer.styled';
+import { DescriptionContainer } from '../UI/TodoCard/DescriptionContainer.styled';
+import { StyledDiv } from '../UI/TodoCard/StyledDiv.styled';
 import { TodoLi } from '../UI/TodoCard/TodoListItem.styled';
+import { TodoText } from '../UI/TodoCard/TodoText.styled';
 
-export default function GenericTodo({ title, id, index, moveCard, deleteTodo }) {
+export default function GenericTodo({
+	level,
+	title,
+	deadline,
+	description,
+	id,
+	index,
+	moveCard,
+	deleteTodo,
+}) {
 	const ref = useRef(null);
 	const [{ handlerId, isOver }, drop] = useDrop({
 		accept: ItemTypes.CARD,
@@ -68,7 +81,17 @@ export default function GenericTodo({ title, id, index, moveCard, deleteTodo }) 
 			data-handler-id={handlerId}
 			background={isOver ? '#e3e3e3' : 'white'}
 		>
-			{title}
+			<TodoText variant="title">{title}</TodoText>
+			<DescriptionContainer>
+				<TodoText variant="description">{description}</TodoText>
+			</DescriptionContainer>
+			{level === 'easy' ? <StyledDiv variant="easy"> </StyledDiv> : ''}
+			{level === 'medium' ? <StyledDiv variant="medium"> </StyledDiv> : ''}
+			{level === 'hard' ? <StyledDiv variant="hard"> </StyledDiv> : ''}
+			<Deadline>
+				<SvgIcon variant="calendar" size="1.1rem" color="#D9D9D9" />
+				{deadline}
+			</Deadline>
 			<DeleteButton onClick={handleDelete}>
 				<SvgIcon variant="delete" size="20px" color="#D9D9D9" />
 			</DeleteButton>

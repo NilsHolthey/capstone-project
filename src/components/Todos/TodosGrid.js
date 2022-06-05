@@ -13,6 +13,7 @@ export default function TodoGrid() {
 			todoList={todos}
 			dropzone={<Dropzone onMove={moveToDoingIt} />}
 			TodoComponent={Todo}
+			headline="DoIT"
 		/>
 	);
 }

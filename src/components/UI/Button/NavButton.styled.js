@@ -5,7 +5,8 @@ export const NavButton = styled.button`
 	border: none;
 	background-color: transparent;
 	position: absolute;
-	left: 5px;
-	top: 45px;
+	left: 1%;
+	top: 10%;
 	height: 20px;
+	z-index: 5;
 `;

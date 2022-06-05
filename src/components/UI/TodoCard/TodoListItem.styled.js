@@ -5,7 +5,7 @@ export const TodoLi = styled.li`
 	background: ${({ background = 'white' }) => background};
 	opacity: ${({ opacity = '1' }) => opacity};
 	border-radius: 8px;
-	padding: 5px 0 0 10px;
+	padding: 5px 0 0 1.5rem;
 	gap: 5px;
 	min-height: 55px;
 	position: relative;
