@@ -6,7 +6,7 @@ export default function DoingItIllustration() {
 		<DoingItSvg
 			data-name="Layer 1"
 			xmlns="http://www.w3.org/2000/svg"
-			width="735.16469"
+			width="135.16469"
 			height="105.28538"
 			viewBox="0 0 735.16469 684.28538"
 		>
