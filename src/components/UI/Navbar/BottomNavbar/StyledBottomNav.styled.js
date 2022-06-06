@@ -4,7 +4,10 @@ export const StyledBottomNav = styled.nav`
 	position: fixed;
 	background-color: #cdd1dc;
 	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	padding-left: 15%;
+	padding-right: 15%;
 	width: 100vw;
 	height: 8vh;
 	bottom: 0px;

@@ -17,5 +17,5 @@ export const StartButton = styled.button`
 	background-color: #6667ab;
 	box-shadow: 0 4px 30px #6667ab;
 	position: absolute;
-	bottom: 15%;
+	bottom: 18%;
 `;

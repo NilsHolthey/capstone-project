@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Dropzone = styled.article`
+export const DropzoneBack = styled.article`
 	margin-top: 10px;
 	margin-bottom: 10px;
 	border: dashed 2px #6667ab;
@@ -14,9 +14,12 @@ export const Dropzone = styled.article`
 	font-size: 10px;
 	height: 105px;
 	width: 150px;
+	position: sticky;
+	top: 25px;
+	z-index: 2;
 	padding: 0.5rem;
 
 	svg {
-		transform: rotate(-90deg);
+		transform: rotate(90deg);
 	}
 `;

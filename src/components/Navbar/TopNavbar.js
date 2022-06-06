@@ -11,6 +11,7 @@ export default function TopNavbar() {
 			<Link passHref href="/todo">
 				<NavLink pathName={router.pathname}>DoIT</NavLink>
 			</Link>
+
 			<Link passHref href="/doingit">
 				<NavLink pathName={router.pathname}>DoingIT</NavLink>
 			</Link>

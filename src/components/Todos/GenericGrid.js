@@ -3,8 +3,17 @@ import DropWrapper from './DropWrapper';
 import { useDrop } from 'react-dnd';
 import { ItemTypes } from '../UI/items';
 import { TodoList } from '../UI/TodoCard/TodoList.styled';
+import { DropzoneWrapper } from '../UI/Dropzone/DropzoneWrapper.styled';
 
-export default function GenericGrid({  todoList, dropzone, TodoComponent }) {
+export default function GenericGrid({
+	svgLeft,
+	svgCenter,
+	svgRight,
+	todoList,
+	dropzone,
+	dropzoneBack,
+	TodoComponent,
+}) {
 	const [{ isOver }, drop] = useDrop({
 		accept: ItemTypes.CARD,
 
@@ -15,10 +24,13 @@ export default function GenericGrid({  todoList, dropzone, TodoComponent }) {
 
 	return (
 		<Container>
-			{dropzone}
-
-			
-
+			<DropzoneWrapper>
+				{svgLeft}
+				{dropzoneBack}
+				{svgCenter}
+				{svgRight}
+				{dropzone}
+			</DropzoneWrapper>
 
 			<DropWrapper>
 				<TodoList

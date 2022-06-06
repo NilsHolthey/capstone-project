@@ -1,10 +1,11 @@
 import { useDrop } from 'react-dnd';
 
 import SvgIcon from '../SVGs/icons';
-import { Dropzone } from '../UI/Dropzone/Dropzone.styled';
+
+import { DropzoneBack } from '../UI/Dropzone/DropzoneBack.styled';
 import { ItemTypes } from '../UI/items';
 
-export default function Dropzone1({ children, onMove }) {
+export default function DropzoneB({ children, onMove }) {
 	const [{ isOver }, drop] = useDrop({
 		accept: ItemTypes.CARD,
 		drop: item => onMove(item.index),
@@ -14,10 +15,10 @@ export default function Dropzone1({ children, onMove }) {
 	});
 
 	return (
-		<Dropzone ref={drop} background={isOver ? '#d5c3dd' : '#f6f6f6'}>
+		<DropzoneBack ref={drop} background={isOver ? '#d5c3dd' : '#f6f6f6'}>
 			{children}
 			<SvgIcon variant="dropzone" size="50px" color="#6667ab" />
-			<p>DnD Item to next list</p>
-		</Dropzone>
+			<p>DnD Item to prev list</p>
+		</DropzoneBack>
 	);
 }

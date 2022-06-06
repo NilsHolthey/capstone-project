@@ -98,6 +98,24 @@ const useStore = create(
 					})
 				);
 			},
+			SendBackToDoingIt: index => {
+				set(
+					produce(draft => {
+						const todo = draft.didIts[index];
+						draft.didIts.splice(index, 1);
+						draft.doingIts.splice(index, 0, todo);
+					})
+				);
+			},
+			SendBackToDoIt: index => {
+				set(
+					produce(draft => {
+						const todo = draft.doingIts[index];
+						draft.doingIts.splice(index, 1);
+						draft.todos.splice(index, 0, todo);
+					})
+				);
+			},
 
 			moveToDoingIt: index => {
 				set(
