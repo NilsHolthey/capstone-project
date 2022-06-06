@@ -7,6 +7,7 @@ import { DropzoneWrapper } from '../UI/Dropzone/DropzoneWrapper.styled';
 
 export default function GenericGrid({
 	svgLeft,
+	svgCenter,
 	svgRight,
 	todoList,
 	dropzone,
@@ -26,6 +27,7 @@ export default function GenericGrid({
 			<DropzoneWrapper>
 				{svgLeft}
 				{dropzoneBack}
+				{svgCenter}
 				{svgRight}
 				{dropzone}
 			</DropzoneWrapper>

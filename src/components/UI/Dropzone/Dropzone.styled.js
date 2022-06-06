@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Dropzone = styled.article`
 	margin-top: 10px;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	border: dashed 2px #6667ab;
 	background: ${({ background = '#d5c3dd' }) => background};
 	border-radius: 8px;
@@ -14,6 +14,7 @@ export const Dropzone = styled.article`
 	font-size: 10px;
 	height: 105px;
 	width: 150px;
+	padding: 0.5rem;
 
 	svg {
 		transform: rotate(-90deg);

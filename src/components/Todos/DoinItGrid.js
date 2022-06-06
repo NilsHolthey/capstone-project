@@ -3,6 +3,7 @@ import useStore from '../../lib/useStore';
 import GenericGrid from './GenericGrid';
 import Dropzone from '../Dropzones/Dropzone';
 import DropzoneBack from '../Dropzones/DropzoneBack';
+import DoingItIllustration from '../SVGs/illustrations/DoingItIllustration';
 
 export default function DoinItGrid() {
 	const doingIts = useStore(state => state.doingIts);
@@ -14,6 +15,7 @@ export default function DoinItGrid() {
 			todoList={doingIts}
 			dropzone={<Dropzone onMove={moveToDidIt} />}
 			dropzoneBack={<DropzoneBack onMove={SendBackToDoIt} />}
+			svgCenter={<DoingItIllustration />}
 			TodoComponent={DoingIt}
 			headline="DoingIT"
 		/>
