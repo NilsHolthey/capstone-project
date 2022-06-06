@@ -6,6 +6,8 @@ export const Container = styled.section`
 	width: 340px;
 	height: 17vh;
 	position: absolute;
-	top: 7%;
+	background-color: transparent;
+	top: 2.3%;
+	left: 6.6%;
 	z-index: 1;
 `;
