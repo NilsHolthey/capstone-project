@@ -24,8 +24,7 @@ export default function OverviewGrid() {
 		<Wrapper>
 			<ChartIllustration />
 			<NavButton type="button" onClick={handleClick}>
-				<SvgIcon variant="chevronLeftCircle" size="20px" color="#6667ab" />
-				Go Back
+				<SvgIcon variant="chevronLeftCircle" size="25px" color="#6667ab" />
 			</NavButton>
 			<PercentageOverview
 				boxShadow="0 0 4px 0 rgba(133, 161, 172, 0.30)"
