@@ -9,9 +9,7 @@ export default function OverviewGrid() {
 	const didIts = useStore(state => state.didIts);
 	const todos = useStore(state => state.todos);
 	const doingIts = useStore(state => state.doingIts);
-
 	const sumOfTasks = todos.length + doingIts.length + didIts.length;
-
 	const progressTodo = Math.round((todos.length / sumOfTasks) * 100);
 	const progressDoingIts = Math.round((doingIts.length / sumOfTasks) * 100);
 	const progressDidIts = Math.round((didIts.length / sumOfTasks) * 100);
