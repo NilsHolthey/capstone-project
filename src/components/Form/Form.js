@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import React from 'react';
+import React, { useState } from 'react';
 import { FormContainer } from '../UI/Form/FormContainer.styled';
 import { StyledForm } from '../UI/Form/Form.styled';
 import { Wrapper } from '../UI/Form/Wrapper.styled';
@@ -30,23 +30,29 @@ export default function Form() {
 		formState: { errors },
 	} = useForm();
 
+	const initialButtonText = 'Submit';
+	const [buttonText, setButtonText] = useState(initialButtonText);
+
 	const onSubmit = data => {
 		addTodo(data);
-
+		setButtonText(<SvgIcon variant="check" size="20px" color="#f6f6f6" />);
+		setTimeout(() => {
+			setButtonText(initialButtonText);
+		}, 2500);
 		setTimeout(() => {
 			router.push('/todo');
-		}, 2000);
+		}, 2500);
 		setTimeout(() => {
 			reset();
 		}, 1000);
 	};
-	const handleClick = () => {
+	const handleClickBack = () => {
 		window.history.back();
 	};
 
 	return (
 		<Wrapper>
-			<NavButton type="button" onClick={handleClick}>
+			<NavButton type="button" onClick={handleClickBack}>
 				<SvgIcon variant="chevronLeftCircle" size="20px" color="#6667ab" />
 				Go Back
 			</NavButton>
@@ -174,7 +180,7 @@ export default function Form() {
 						</LabelRadio>
 					</Fieldset>
 					<ButtonContainer>
-						<SubmitButton>Submit</SubmitButton>
+						<SubmitButton>{buttonText}</SubmitButton>
 					</ButtonContainer>
 				</StyledForm>
 			</FormContainer>
