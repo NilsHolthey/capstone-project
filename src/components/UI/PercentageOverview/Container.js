@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.section`
 	height: 20vh;
-	width: 80vw;
-	padding: 9px;
+	width: 320px;
+	padding: 8px;
 	display: flex;
 	gap: 2px;
 	justify-content: space-around;

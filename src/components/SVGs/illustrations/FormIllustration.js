@@ -6,8 +6,8 @@ export default function FormIllustration() {
 			<svg
 				data-name="Layer 1"
 				xmlns="http://www.w3.org/2000/svg"
-				width="165.9*0.8"
-				height="150.25*0.8"
+				width="165.9"
+				height="140.25"
 				viewBox="0 0 663.67004 601.06409"
 			>
 				<path

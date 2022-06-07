@@ -14,7 +14,7 @@ export default function LandingPage() {
 	return (
 		<Container pathName={router.pathname}>
 			<article>
-				<Card top="-11px" left="-30px">
+				<Card top="-2%" left="-3%">
 					{' '}
 				</Card>
 				<Card top="-55px" right="21px">
@@ -26,10 +26,10 @@ export default function LandingPage() {
 				<Card top="-20px" left="65px">
 					{' '}
 				</Card>
-				<Card top="-25px" left="135px" opacity="0.2" width="20vw" height="15vh">
+				<Card top="-25px" left="35%" opacity="0.2" width="20vw" height="15vh">
 					{' '}
 				</Card>
-				<Card top="30px" left="50px" opacity="0.2">
+				<Card top="30px" left="20%" opacity="0.2">
 					{' '}
 				</Card>
 				<Card top="45px" right="0px" opacity="0.2">
@@ -41,7 +41,7 @@ export default function LandingPage() {
 				<Card top="70px" left="25px" opacity="0.2">
 					{' '}
 				</Card>
-				<Card top="25px" left="135px" opacity="0.2" width="20vw" height="15vh">
+				<Card top="25px" left="39%" opacity="0.2" width="20vw" height="15vh">
 					{' '}
 				</Card>
 				<Card bottom="25px" left="110px">

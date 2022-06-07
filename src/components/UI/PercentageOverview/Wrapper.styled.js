@@ -2,9 +2,8 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.section`
 	display: flex;
-
-	height: 100%;
-	justify-content: flex-start;
+	height: 90vh;
+	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	padding-top: 1rem;

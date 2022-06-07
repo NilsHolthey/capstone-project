@@ -6,7 +6,7 @@ export default function DidItIllustration() {
 			data-name="Layer 1"
 			xmlns="http://www.w3.org/2000/svg"
 			width="160.21934"
-			height="125"
+			height="165"
 			viewBox="0 0 543.21934 633.6012"
 		>
 			<path

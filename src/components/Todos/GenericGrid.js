@@ -4,6 +4,7 @@ import { useDrop } from 'react-dnd';
 import { ItemTypes } from '../UI/items';
 import { TodoList } from '../UI/TodoCard/TodoList.styled';
 import { DropzoneWrapper } from '../UI/Dropzone/DropzoneWrapper.styled';
+import { useRouter } from 'next/router';
 
 export default function GenericGrid({
 	svgLeft,
@@ -21,10 +22,11 @@ export default function GenericGrid({
 			isOver: !!monitor.isOver(),
 		}),
 	});
+	const router = useRouter();
 
 	return (
 		<Container>
-			<DropzoneWrapper>
+			<DropzoneWrapper pathName={router.pathname}>
 				{svgLeft}
 				{dropzoneBack}
 				{svgCenter}

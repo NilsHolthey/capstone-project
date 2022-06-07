@@ -6,8 +6,8 @@ export const InfoBox = styled.article`
 	justify-content: center;
 	border-radius: 2px;
 	box-shadow: ${({ boxShadow = '0 0 2px 2px rgba(240, 240, 240, 1)' }) => boxShadow};
-	width: 30vw;
-	height: 15vh;
+	width: 40%;
+	height: 85%;
 	padding-left: 0.5rem;
 
 	background-color: rgba(246, 246, 246, 0.5);
