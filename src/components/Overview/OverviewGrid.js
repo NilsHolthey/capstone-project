@@ -9,9 +9,7 @@ export default function OverviewGrid() {
 	const didIts = useStore(state => state.didIts);
 	const todos = useStore(state => state.todos);
 	const doingIts = useStore(state => state.doingIts);
-
 	const sumOfTasks = todos.length + doingIts.length + didIts.length;
-
 	const progressTodo = Math.round((todos.length / sumOfTasks) * 100);
 	const progressDoingIts = Math.round((doingIts.length / sumOfTasks) * 100);
 	const progressDidIts = Math.round((didIts.length / sumOfTasks) * 100);
@@ -24,8 +22,7 @@ export default function OverviewGrid() {
 		<Wrapper>
 			<ChartIllustration />
 			<NavButton type="button" onClick={handleClick}>
-				<SvgIcon variant="chevronLeftCircle" size="20px" color="#6667ab" />
-				Go Back
+				<SvgIcon variant="chevronLeftCircle" size="25px" color="#6667ab" />
 			</NavButton>
 			<PercentageOverview
 				boxShadow="0 0 4px 0 rgba(133, 161, 172, 0.30)"

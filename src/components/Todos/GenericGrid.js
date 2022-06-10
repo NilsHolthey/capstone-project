@@ -14,6 +14,8 @@ export default function GenericGrid({
 	dropzone,
 	dropzoneBack,
 	TodoComponent,
+	listButtonRight,
+	listButtonLeft,
 }) {
 	const [{ isOver }, drop] = useDrop({
 		accept: ItemTypes.CARD,
@@ -55,6 +57,8 @@ export default function GenericGrid({
 					})}
 				</TodoList>
 			</DropWrapper>
+			{listButtonRight}
+			{listButtonLeft}
 		</Container>
 	);
 }

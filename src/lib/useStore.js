@@ -25,8 +25,8 @@ const useStore = create(
 					id: 'TUfMKV3g0KJPa5Qiq5boa',
 					title: 'Capstone Project',
 					description: 'write 2 new userStories',
-					deadline: '2022-11-22',
-					level: 'medium',
+					deadline: '2022-06-09',
+					level: 'hard',
 				},
 			],
 			didIts: [
@@ -34,7 +34,7 @@ const useStore = create(
 					id: 'bMrcHIV9zyJeyf2sdijq_',
 					title: 'gitHub',
 					description: 'update my gitHub readme',
-					deadline: '2022-11-22',
+					deadline: '2022-07-02',
 					level: 'easy',
 				},
 				{
